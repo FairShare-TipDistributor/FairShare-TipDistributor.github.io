@@ -1,19 +1,21 @@
 import "./App.css";
+import {
+	PrimaryButton,
+	SecondaryButton,
+	TertiaryButton,
+} from "../Buttons/DesignedButtons";
 
 function App() {
 	return (
 		<div className="App">
-			<header className="App-header">
-				<p>Testing merging into main</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-			</header>
+			<header className="App-header"></header>
+			<main>
+				<PrimaryButton text="Primary" />
+				<br />
+				<SecondaryButton text="Secondary" />
+				<br />
+				<TertiaryButton text="Tertiary" />
+			</main>
 		</div>
 	);
 }
