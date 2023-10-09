@@ -6,8 +6,8 @@
 	font-size: 24px;
 	border-radius: 8px;
 	margin: 10%;
-	width: 133px;
-	height: 63px;
+	min-width: 133px;
+	min-height: 63px;
 }
 
 .designed-btn:hover {
