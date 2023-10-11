@@ -60,3 +60,7 @@
 .tertiary-btn:active {
 	box-shadow: none;
 }
+
+.secondary-btn:active {
+	background-color: #fff;
+}
