@@ -8,6 +8,14 @@
 	src: url("./Poppins/Poppins-Bold.ttf");
 	font-weight: bold;
 }
+@font-face {
+	font-family: "Poppins Light";
+	src: url("./Poppins/Poppins-Light.ttf");
+}
+@font-face {
+	font-family: "Poppins Semi-Bold";
+	src: url("./Poppins/Poppins-SemiBold.ttf");
+}
 
 /* Raleway Font */
 @font-face {
