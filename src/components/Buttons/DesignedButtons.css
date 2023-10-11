@@ -1,15 +1,4 @@
-﻿/* @font-face {
-	font-family: "Poppins";
-	src: url("../../fonts/Poppins/Poppins-Regular.ttf");
-}
-@font-face {
-	font-family: "Poppins";
-	src: url("../../fonts/Poppins/Poppins-Bold.ttf");
-	font-weight: bold;
-} */
-
-/*  */
-/* Natural State */
+﻿/* Natural State */
 .primary-btn,
 .secondary-btn,
 .tertiary-btn {
@@ -22,45 +11,38 @@
 	min-width: 133px;
 	min-height: 63px;
 }
-
 .primary-btn {
 	color: #ffffff;
 	background-color: #175a87;
 	border: 1px solid #175a87;
 }
-
 .secondary-btn {
 	color: #000;
 	background-color: #fff;
 	border: 1px solid #000;
 }
-
 .tertiary-btn {
 	color: #000;
 	background-color: #5cc0df;
 	border: 1px solid #5cc0df;
 }
 
-/*  */
 /* Hover State */
 .primary-btn:hover,
 .secondary-btn:hover,
 .tertiary-btn:hover {
 	font-weight: bold;
 }
-
 .secondary-btn:hover {
 	background-color: #5cc0df;
 }
 
-/*  */
 /* Active State */
 .primary-btn:active,
 .secondary-btn:active,
 .tertiary-btn:active {
 	box-shadow: none;
 }
-
 .secondary-btn:active {
 	background-color: #fff;
 }
