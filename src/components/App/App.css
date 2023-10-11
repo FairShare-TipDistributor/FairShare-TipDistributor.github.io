@@ -3,3 +3,64 @@
 	justify-content: center;
 	align-items: center;
 }
+
+.display {
+	font-family: "Raleway Black";
+	font-size: 5em; /* 80px at default of 16px within the browser */
+}
+h1,
+h2,
+h3 {
+	font-family: "Raleway Extrabold";
+}
+h1 {
+	font-size: 3.375em; /* 54px at default of 16px within the browser */
+}
+
+h2 {
+	font-size: 2.25em; /* 36px at default of 16px within the browser */
+}
+
+h3 {
+	font-size: 1.5625em; /* 25px at default of 16px within the browser */
+}
+
+h4 {
+	font-family: "Raleway Bold";
+	font-size: 1.5em; /* 24px at default of 16px within the browser */
+}
+
+.subheading1,
+.subheading2,
+.subheading3 {
+	font-family: "Poppins Semi-Bold";
+	font-size: 1em; /* 16px at default of 16px within the browser */
+}
+
+.body-large,
+.body-regular,
+.body-small,
+.body-tiny {
+	font-family: "Poppins Light";
+}
+
+.body-large,
+.body-regular {
+	font-size: 1em; /* 16px at default of 16px within the browser */
+}
+
+.body-small {
+	font-size: 0.875em; /* 14px at default of 16px within the browser */
+}
+
+.body-tiny {
+	font-size: 0.75em; /* 12px at default of 16px within the browser */
+}
+
+.btn-regular {
+	font-size: 0.875em; /* 14px at default of 16px within the browser */
+}
+
+.btn-small {
+	font-size: 0.875em; /* 14px at default of 16px within the browser */
+}
