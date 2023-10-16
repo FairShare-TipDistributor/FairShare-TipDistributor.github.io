@@ -1,5 +1,4 @@
 import "./App.css";
-import "../../fonts/Fonts.css";
 import {
 	PrimaryButton,
 	SecondaryButton,
