@@ -2,6 +2,10 @@
 @use "./colors" as *;
 @use "./responsive" as *;
 
+// ##################
+/* Adding Fonts */
+// ##################
+
 /* Poppins Font */
 @font-face {
 	font-family: "Poppins";
@@ -12,30 +16,39 @@
 	src: url(".fonts/Poppins/Poppins-Bold.ttf");
 	font-weight: bold;
 }
+
+/* Poppins Light Font */
 @font-face {
 	font-family: "Poppins Light";
 	src: url(".fonts/Poppins/Poppins-Light.ttf");
 }
+
+/* Poppins Semi-Bold Font */
 @font-face {
 	font-family: "Poppins Semi-Bold";
 	src: url(".fonts/Poppins/Poppins-SemiBold.ttf");
 }
 
-/* Raleway Font */
+/* Raleway Black Font */
 @font-face {
 	font-family: "Raleway Black";
 	src: url(".fonts/Raleway/Raleway-Black.ttf");
 }
 
+/* Raleway Extrabold Font */
 @font-face {
 	font-family: "Raleway Extrabold";
 	src: url(".fonts/Raleway/Raleway-ExtraBold.ttf");
 }
 
+/* Raleway Bold Font */
 @font-face {
 	font-family: "Raleway Bold";
 	src: url(".fonts/Raleway/Raleway-Bold.ttf");
 }
+// ##################
+/* End Fonts */
+// ##################
 
 body {
 	@include textBodyRegular;
@@ -72,27 +85,27 @@ h4 {
 .mobile-and-down {
 	display: inherit;
 
-	@include tabletAndUp;
+	// @include tabletAndUp;
 }
 
 .tablet-and-down {
 	display: inherit;
 
-	@include desktopAndUp;
+	// @include desktopAndUp;
 }
 
 .tablet-and-up {
 	display: none;
 
-	@include tabletAndUp {
-		display: inherit;
-	}
+	// @include tabletAndUp {
+	// 	display: inherit;
+	// }
 }
 
 .desktop-and-up {
 	display: none;
 
-	@include desktopAndUp {
-		display: inherit;
-	}
+	// @include desktopAndUp {
+	// 	display: inherit;
+	// }
 }

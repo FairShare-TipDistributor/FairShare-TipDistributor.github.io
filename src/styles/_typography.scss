@@ -7,10 +7,10 @@
 	letter-spacing: -0.002em;
 	font-family: "Raleway Black";
 
-	@include desktopAndUp {
-		font-size: rem(160px);
-		line-height: rem(200px);
-	}
+	// @include desktopAndUp {
+	// 	font-size: rem(160px);
+	// 	line-height: rem(200px);
+	// }
 }
 
 @mixin textHeading01 {
@@ -19,10 +19,10 @@
 	letter-spacing: -0.018em;
 	font-family: "Raleway Extrabold";
 
-	@include desktopAndUp {
-		font-size: rem(72px);
-		line-height: rem(80px);
-	}
+	// @include desktopAndUp {
+	// 	font-size: rem(72px);
+	// 	line-height: rem(80px);
+	// }
 }
 
 @mixin textHeading02 {
@@ -31,10 +31,10 @@
 	letter-spacing: -0.015em;
 	font-family: "Raleway Extrabold";
 
-	@include desktopAndUp {
-		font-size: rem(48px);
-		line-height: rem(56px);
-	}
+	// @include desktopAndUp {
+	// 	font-size: rem(48px);
+	// 	line-height: rem(56px);
+	// }
 }
 
 @mixin textHeading03 {
@@ -43,10 +43,10 @@
 	letter-spacing: -0.015em;
 	font-family: "Raleway Extrabold";
 
-	@include desktopAndUp {
-		font-size: rem(40px);
-		line-height: rem(48px);
-	}
+	// @include desktopAndUp {
+	// 	font-size: rem(40px);
+	// 	line-height: rem(48px);
+	// }
 }
 
 @mixin textHeading04 {
@@ -55,10 +55,10 @@
 	letter-spacing: -0.015em;
 	font-family: "Raleway Bold";
 
-	@include desktopAndUp {
-		font-size: rem(36px);
-		line-height: rem(44px);
-	}
+	// @include desktopAndUp {
+	// 	font-size: rem(36px);
+	// 	line-height: rem(44px);
+	// }
 }
 
 @mixin textSubheading01 {
@@ -67,10 +67,10 @@
 	letter-spacing: -0.012em;
 	font-family: "Poppins Semi-Bold";
 
-	@include desktopAndUp {
-		font-size: rem(24px);
-		line-height: rem(32px);
-	}
+	// @include desktopAndUp {
+	// 	font-size: rem(24px);
+	// 	line-height: rem(32px);
+	// }
 }
 
 @mixin textSubheading02 {
@@ -79,10 +79,10 @@
 	letter-spacing: -0.015em;
 	font-family: "Poppins Semi-Bold";
 
-	@include desktopAndUp {
-		font-size: rem(20px);
-		line-height: rem(28px);
-	}
+	// @include desktopAndUp {
+	// 	font-size: rem(20px);
+	// 	line-height: rem(28px);
+	// }
 }
 
 @mixin textSubheading03 {
@@ -98,10 +98,10 @@
 	letter-spacing: 0;
 	font-family: "Poppins Light";
 
-	@include desktopAndUp {
-		font-size: rem(18px);
-		line-height: rem(26px);
-	}
+	// @include desktopAndUp {
+	// 	font-size: rem(18px);
+	// 	line-height: rem(26px);
+	// }
 }
 
 @mixin textBodyRegular {
@@ -131,10 +131,10 @@
 	letter-spacing: 0;
 	font-family: "Poppins Semi-Bold";
 
-	@include desktopAndUp {
-		font-size: rem(17px);
-		line-height: rem(24px);
-	}
+	// @include desktopAndUp {
+	// 	font-size: rem(17px);
+	// 	line-height: rem(24px);
+	// }
 }
 
 @mixin textButtonSmall {

@@ -1,1 +1,11 @@
-﻿
+﻿@use "sass:math";
+
+$standardFontSize: 16px;
+
+@function remToPx($rems) {
+	@return math.div($rems, 1rem) * $standardFontSize;
+}
+
+@function rem($pixels) {
+	@return (math.div($pixels, $standardFontSize)) * 1rem;
+}

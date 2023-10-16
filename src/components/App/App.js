@@ -12,10 +12,10 @@ function App() {
 			<main>
 				<p>PrimaryButton</p>
 				<PrimaryButton text="Button" />
-				<br />
+
 				<p>SecondaryButton</p>
 				<SecondaryButton text="Button" />
-				<br />
+
 				<p>TertiaryButton</p>
 				<TertiaryButton text="Button" />
 			</main>
