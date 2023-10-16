@@ -42,6 +42,7 @@
 .secondary-btn:active,
 .tertiary-btn:active {
 	box-shadow: none;
+	font-weight: normal;
 }
 .secondary-btn:active {
 	background-color: #fff;
