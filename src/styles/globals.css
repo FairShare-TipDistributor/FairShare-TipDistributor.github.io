@@ -1,0 +1,33 @@
+/* Poppins Font */
+@font-face {
+  font-family: "Poppins";
+  src: url(".fonts/Poppins/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(".fonts/Poppins/Poppins-Bold.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Poppins Light";
+  src: url(".fonts/Poppins/Poppins-Light.ttf");
+}
+@font-face {
+  font-family: "Poppins Semi-Bold";
+  src: url(".fonts/Poppins/Poppins-SemiBold.ttf");
+}
+/* Raleway Font */
+@font-face {
+  font-family: "Raleway Black";
+  src: url(".fonts/Raleway/Raleway-Black.ttf");
+}
+@font-face {
+  font-family: "Raleway Extrabold";
+  src: url(".fonts/Raleway/Raleway-ExtraBold.ttf");
+}
+@font-face {
+  font-family: "Raleway Bold";
+  src: url(".fonts/Raleway/Raleway-Bold.ttf");
+}
+
+/*# sourceMappingURL=globals.css.map */
