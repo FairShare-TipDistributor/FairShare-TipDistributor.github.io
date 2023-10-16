@@ -11,11 +11,14 @@ function App() {
 		<div className="App">
 			<header className="App-header"></header>
 			<main>
-				<PrimaryButton text="Primary" />
+				<p>PrimaryButton</p>
+				<PrimaryButton text="Button" />
 				<br />
-				<SecondaryButton text="Secondary" />
+				<p>SecondaryButton</p>
+				<SecondaryButton text="Button" />
 				<br />
-				<TertiaryButton text="Tertiary" />
+				<p>TertiaryButton</p>
+				<TertiaryButton text="Button" />
 			</main>
 		</div>
 	);
