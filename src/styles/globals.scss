@@ -1,4 +1,8 @@
-﻿/* Poppins Font */
+﻿@use "./typography" as *;
+@use "./colors" as *;
+@use "./responsive" as *;
+
+/* Poppins Font */
 @font-face {
 	font-family: "Poppins";
 	src: url(".fonts/Poppins/Poppins-Regular.ttf");
@@ -31,4 +35,64 @@
 @font-face {
 	font-family: "Raleway Bold";
 	src: url(".fonts/Raleway/Raleway-Bold.ttf");
+}
+
+body {
+	@include textBodyRegular;
+}
+
+h1 {
+	@include textHeading01;
+}
+
+h2 {
+	@include textHeading02;
+}
+
+h3 {
+	@include textHeading03;
+}
+
+h4 {
+	@include textHeading04;
+}
+
+.subheading1 {
+	@include textSubheading01;
+}
+
+.subheading2 {
+	@include textSubheading02;
+}
+
+.subheading3 {
+	@include textSubheading03;
+}
+
+.mobile-and-down {
+	display: inherit;
+
+	@include tabletAndUp;
+}
+
+.tablet-and-down {
+	display: inherit;
+
+	@include desktopAndUp;
+}
+
+.tablet-and-up {
+	display: none;
+
+	@include tabletAndUp {
+		display: inherit;
+	}
+}
+
+.desktop-and-up {
+	display: none;
+
+	@include desktopAndUp {
+		display: inherit;
+	}
 }

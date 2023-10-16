@@ -1,33 +1,18 @@
-/* Poppins Font */
-@font-face {
-  font-family: "Poppins";
-  src: url(".fonts/Poppins/Poppins-Regular.ttf");
-}
-@font-face {
-  font-family: "Poppins";
-  src: url(".fonts/Poppins/Poppins-Bold.ttf");
-  font-weight: bold;
-}
-@font-face {
-  font-family: "Poppins Light";
-  src: url(".fonts/Poppins/Poppins-Light.ttf");
-}
-@font-face {
-  font-family: "Poppins Semi-Bold";
-  src: url(".fonts/Poppins/Poppins-SemiBold.ttf");
-}
-/* Raleway Font */
-@font-face {
-  font-family: "Raleway Black";
-  src: url(".fonts/Raleway/Raleway-Black.ttf");
-}
-@font-face {
-  font-family: "Raleway Extrabold";
-  src: url(".fonts/Raleway/Raleway-ExtraBold.ttf");
-}
-@font-face {
-  font-family: "Raleway Bold";
-  src: url(".fonts/Raleway/Raleway-Bold.ttf");
-}
+/* Error: 2 arguments required, but only 1 was passed.
+ *     ,
+ * 108 |     font-size: rem(16px);
+ *     |                ^^^^^^^^^
+ *     '
+ *   src/styles/_typography.scss 108:13  textBodyRegular()
+ *   src/styles/globals.scss 41:2        root stylesheet */
 
-/*# sourceMappingURL=globals.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: 2 arguments required, but only 1 was passed.\a     \2577 \a 108 \2502      font-size: rem(16px);\a     \2502                 ^^^^^^^^^\a     \2575 \a   src/styles/_typography.scss 108:13  textBodyRegular()\a   src/styles/globals.scss 41:2        root stylesheet";
+}
