@@ -1,94 +1,102 @@
 /* Adding Fonts */
 /* Poppins Font */
 @font-face {
-  font-family: "Poppins";
+  font-family: "Poppins-Regular";
   src: url(".fonts/Poppins/Poppins-Regular.ttf");
 }
 @font-face {
-  font-family: "Poppins";
+  font-family: "Poppins-Regular";
   src: url(".fonts/Poppins/Poppins-Bold.ttf");
   font-weight: bold;
 }
 /* Poppins Light Font */
 @font-face {
-  font-family: "Poppins Light";
+  font-family: "Poppins-Light";
   src: url(".fonts/Poppins/Poppins-Light.ttf");
 }
 /* Poppins Semi-Bold Font */
 @font-face {
-  font-family: "Poppins Semi-Bold";
+  font-family: "Poppins-SemiBold";
   src: url(".fonts/Poppins/Poppins-SemiBold.ttf");
 }
 /* Raleway Black Font */
 @font-face {
-  font-family: "Raleway Black";
+  font-family: "Raleway-Black";
   src: url(".fonts/Raleway/Raleway-Black.ttf");
 }
 /* Raleway Extrabold Font */
 @font-face {
-  font-family: "Raleway Extrabold";
+  font-family: "Raleway-ExtraBold";
   src: url(".fonts/Raleway/Raleway-ExtraBold.ttf");
 }
 /* Raleway Bold Font */
 @font-face {
-  font-family: "Raleway Bold";
+  font-family: "Raleway-Bold";
   src: url(".fonts/Raleway/Raleway-Bold.ttf");
 }
 /* End Fonts */
 body {
+  margin: 0;
+  padding: 0;
   font-size: 1rem;
   line-height: 1.5rem;
   letter-spacing: 0;
-  font-family: "Poppins Light";
+  font-family: "Poppins-Light";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 h1 {
   font-size: 3.375rem;
   line-height: 3.75rem;
   letter-spacing: -0.018em;
-  font-family: "Raleway Extrabold";
+  font-family: "Raleway-ExtraBold";
 }
 
 h2 {
   font-size: 2.25rem;
   line-height: 2.625rem;
   letter-spacing: -0.015em;
-  font-family: "Raleway Extrabold";
+  font-family: "Raleway-ExtraBold";
 }
 
 h3 {
   font-size: 1.5625rem;
   line-height: 2rem;
   letter-spacing: -0.015em;
-  font-family: "Raleway Extrabold";
+  font-family: "Raleway-ExtraBold";
 }
 
 h4 {
   font-size: 1.5rem;
   line-height: 1.875rem;
   letter-spacing: -0.015em;
-  font-family: "Raleway Bold";
+  font-family: "Raleway-Bold";
 }
 
 .subheading1 {
   font-size: 1rem;
   line-height: 1.5rem;
   letter-spacing: -0.012em;
-  font-family: "Poppins Semi-Bold";
+  font-family: "Poppins-SemiBold";
 }
 
 .subheading2 {
   font-size: 1rem;
   line-height: 1.5rem;
   letter-spacing: -0.015em;
-  font-family: "Poppins Semi-Bold";
+  font-family: "Poppins-SemiBold";
 }
 
 .subheading3 {
   font-size: 1rem;
   line-height: 1.5rem;
   letter-spacing: -0.012em;
-  font-family: "Poppins Semi-Bold";
+  font-family: "Poppins-SemiBold";
 }
 
 .mobile-and-down {

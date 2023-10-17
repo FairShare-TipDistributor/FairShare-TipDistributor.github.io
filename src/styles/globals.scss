@@ -8,42 +8,42 @@
 
 /* Poppins Font */
 @font-face {
-	font-family: "Poppins";
+	font-family: "Poppins-Regular";
 	src: url(".fonts/Poppins/Poppins-Regular.ttf");
 }
 @font-face {
-	font-family: "Poppins";
+	font-family: "Poppins-Regular";
 	src: url(".fonts/Poppins/Poppins-Bold.ttf");
 	font-weight: bold;
 }
 
 /* Poppins Light Font */
 @font-face {
-	font-family: "Poppins Light";
+	font-family: "Poppins-Light";
 	src: url(".fonts/Poppins/Poppins-Light.ttf");
 }
 
 /* Poppins Semi-Bold Font */
 @font-face {
-	font-family: "Poppins Semi-Bold";
+	font-family: "Poppins-SemiBold";
 	src: url(".fonts/Poppins/Poppins-SemiBold.ttf");
 }
 
 /* Raleway Black Font */
 @font-face {
-	font-family: "Raleway Black";
+	font-family: "Raleway-Black";
 	src: url(".fonts/Raleway/Raleway-Black.ttf");
 }
 
 /* Raleway Extrabold Font */
 @font-face {
-	font-family: "Raleway Extrabold";
+	font-family: "Raleway-ExtraBold";
 	src: url(".fonts/Raleway/Raleway-ExtraBold.ttf");
 }
 
 /* Raleway Bold Font */
 @font-face {
-	font-family: "Raleway Bold";
+	font-family: "Raleway-Bold";
 	src: url(".fonts/Raleway/Raleway-Bold.ttf");
 }
 // ##################
@@ -51,7 +51,17 @@
 // ##################
 
 body {
+	margin: 0;
+	padding: 0;
+	// background-color: ;
+	// color: ;
 	@include textBodyRegular;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 h1 {
