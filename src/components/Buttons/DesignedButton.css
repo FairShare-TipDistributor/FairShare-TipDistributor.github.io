@@ -1,0 +1,77 @@
+/* Natural State */
+.primary-btn {
+  color: #ffffff;
+  background-color: #175a87;
+  font-family: "Poppins Bold", sans-serif;
+  padding: 15px 30px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2509803922);
+  font-size: 24px;
+  border-radius: 8px;
+  margin: 1% auto;
+  min-width: 133px;
+  min-height: 63px;
+  border-color: #175a87;
+  border-width: 1px;
+  border-style: solid;
+}
+.primary-btn:hover {
+  font-weight: bold;
+}
+.primary-btn:active {
+  box-shadow: none;
+  font-weight: normal;
+}
+
+.secondary-btn {
+  color: #000;
+  background-color: #fff;
+  font-family: "Poppins Bold", sans-serif;
+  padding: 15px 30px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2509803922);
+  font-size: 24px;
+  border-radius: 8px;
+  margin: 1% auto;
+  min-width: 133px;
+  min-height: 63px;
+  border-color: #000;
+  border-width: 1px;
+  border-style: solid;
+}
+.secondary-btn:hover {
+  font-weight: bold;
+}
+.secondary-btn:active {
+  box-shadow: none;
+  font-weight: normal;
+}
+.secondary-btn:hover {
+  background-color: #5cc0df;
+}
+.secondary-btn:active {
+  background-color: #fff;
+}
+
+.tertiary-btn {
+  color: #000;
+  background-color: #5cc0df;
+  font-family: "Poppins Bold", sans-serif;
+  padding: 15px 30px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2509803922);
+  font-size: 24px;
+  border-radius: 8px;
+  margin: 1% auto;
+  min-width: 133px;
+  min-height: 63px;
+  border-color: #5cc0df;
+  border-width: 1px;
+  border-style: solid;
+}
+.tertiary-btn:hover {
+  font-weight: bold;
+}
+.tertiary-btn:active {
+  box-shadow: none;
+  font-weight: normal;
+}
+
+/*# sourceMappingURL=DesignedButton.css.map */
