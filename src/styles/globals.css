@@ -6,6 +6,7 @@
   font-style: normal;
   font-weight: normal;
   src: local("Poppins Regular"), url("./fonts/poppins-cufonfonts-webfont/Poppins-Regular.woff") format("woff");
+  font-display: swap;
 }
 @font-face {
   font-family: "Poppins Light";
@@ -28,19 +29,19 @@
 /* Raleway Black Font */
 @font-face {
   font-family: "Raleway-Black";
-  src: url(".fonts/Raleway/Raleway-Black.ttf");
+  src: url("./fonts/Raleway/Raleway-Black.ttf");
   font-display: swap;
 }
 /* Raleway Extrabold Font */
 @font-face {
   font-family: "Raleway-ExtraBold";
-  src: url(".fonts/Raleway/Raleway-ExtraBold.ttf");
+  src: url("./fonts/Raleway/Raleway-ExtraBold.ttf");
   font-display: swap;
 }
 /* Raleway Bold Font */
 @font-face {
   font-family: "Raleway-Bold";
-  src: url(".fonts/Raleway/Raleway-Bold.ttf");
+  src: url("./fonts/Raleway/Raleway-Bold.ttf");
   font-display: swap;
 }
 /* End Fonts */
