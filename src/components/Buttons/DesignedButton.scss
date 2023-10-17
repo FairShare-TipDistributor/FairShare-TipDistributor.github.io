@@ -25,14 +25,12 @@
 .primary-btn {
 	color: #ffffff;
 	background-color: #175a87;
-	// border: 1px solid #175a87;
 	@include buttonDefaults($buttonBorderColor: #175a87);
 }
 
 .secondary-btn {
 	color: #000;
 	background-color: #fff;
-	// border: 1px solid #000;
 	@include buttonDefaults($buttonBorderColor: #000);
 
 	&:hover {
@@ -47,6 +45,5 @@
 .tertiary-btn {
 	color: #000;
 	background-color: #5cc0df;
-	// border: 1px solid #5cc0df;
 	@include buttonDefaults($buttonBorderColor: #5cc0df);
 }
