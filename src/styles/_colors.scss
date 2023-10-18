@@ -1,1 +1,13 @@
-﻿
+﻿// Color palette
+$colorDarkBlue: #175a87;
+$colorLightBlue: #5cc0df;
+$colorWhite: #fff;
+$colorLightGrey: #efefef;
+$colorBlack: #1f1f1f;
+$colorRed: #ad0000;
+$colorBlue: #0047d6;
+
+// Context based colors
+$positiveAlertTextColor: $colorBlue;
+$errorTextColor: $colorRed;
+$defaultTextColor: $colorBlack;

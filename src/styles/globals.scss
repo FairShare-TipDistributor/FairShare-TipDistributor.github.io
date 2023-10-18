@@ -69,18 +69,18 @@
 /* End Fonts */
 // ##################
 
-body {
-	margin: 0;
-	padding: 0;
-	// background-color: ;
-	// color: ;
-	@include textBodyRegular;
-}
-
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	color: $defaultTextColor;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	// background-color: ;
+	@include textBodyRegular;
 }
 
 h1 {

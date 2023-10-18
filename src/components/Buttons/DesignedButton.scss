@@ -1,4 +1,6 @@
-﻿@mixin buttonDefaults($buttonBorderColor) {
+﻿@use "../../styles/index.scss" as *;
+
+@mixin buttonDefaults($buttonBorderColor) {
 	font-family: "Poppins Regular", sans-serif;
 	padding: 15px 30px;
 	box-shadow: 0px 2px 8px #00000040;
@@ -12,7 +14,6 @@
 	border-style: solid;
 
 	&:hover {
-		// font-weight: bold;
 		font-family: "Poppins Bold";
 	}
 
@@ -23,27 +24,26 @@
 }
 
 .primary-btn {
-	color: #ffffff;
-	background-color: #175a87;
-	@include buttonDefaults($buttonBorderColor: #175a87);
+	@include buttonDefaults($buttonBorderColor: $colorDarkBlue);
+	background-color: $colorDarkBlue;
+	// Overwrite the color for .primary-btn to colorWhite instead of the defaultTextColor
+	color: $colorWhite;
 }
 
 .secondary-btn {
-	color: #000;
-	background-color: #fff;
-	@include buttonDefaults($buttonBorderColor: #000);
+	@include buttonDefaults($buttonBorderColor: $colorBlack);
+	background-color: $colorWhite;
 
 	&:hover {
-		background-color: #5cc0df;
+		background-color: $colorLightBlue;
 	}
 
 	&:active {
-		background-color: #fff;
+		background-color: $colorWhite;
 	}
 }
 
 .tertiary-btn {
-	color: #000;
-	background-color: #5cc0df;
-	@include buttonDefaults($buttonBorderColor: #5cc0df);
+	@include buttonDefaults($buttonBorderColor: $colorLightBlue);
+	background-color: $colorLightBlue;
 }

@@ -1,6 +1,4 @@
 .primary-btn {
-  color: #ffffff;
-  background-color: #175a87;
   font-family: "Poppins Regular", sans-serif;
   padding: 15px 30px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2509803922);
@@ -12,6 +10,8 @@
   border-color: #175a87;
   border-width: 1px;
   border-style: solid;
+  background-color: #175a87;
+  color: #fff;
 }
 .primary-btn:hover {
   font-family: "Poppins Bold";
@@ -22,8 +22,6 @@
 }
 
 .secondary-btn {
-  color: #000;
-  background-color: #fff;
   font-family: "Poppins Regular", sans-serif;
   padding: 15px 30px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2509803922);
@@ -32,9 +30,10 @@
   margin: 1% auto;
   min-width: 133px;
   min-height: 63px;
-  border-color: #000;
+  border-color: #1f1f1f;
   border-width: 1px;
   border-style: solid;
+  background-color: #fff;
 }
 .secondary-btn:hover {
   font-family: "Poppins Bold";
@@ -51,8 +50,6 @@
 }
 
 .tertiary-btn {
-  color: #000;
-  background-color: #5cc0df;
   font-family: "Poppins Regular", sans-serif;
   padding: 15px 30px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2509803922);
@@ -64,6 +61,7 @@
   border-color: #5cc0df;
   border-width: 1px;
   border-style: solid;
+  background-color: #5cc0df;
 }
 .tertiary-btn:hover {
   font-family: "Poppins Bold";
