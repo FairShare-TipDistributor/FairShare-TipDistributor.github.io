@@ -1,9 +1,9 @@
 
 // Test data. This will come from client in deployed version
-let tipsTotal = 300;
+let tipsTotal = 2345.67;
 let nameAndHours = [
-    {name:'Tim', hours:20},
-    {name:'Tod', hours:20},
+    {name:'Tim', hours:10},
+    {name:'Allen', hours:20},
 ]
 
 
@@ -18,7 +18,7 @@ function shareOfTips (tipsTotal, nameAndHours) {
      * 
      * @param {number} hoursTotal total # of hours worked (derived in for loop)
      * @param {number} empHours hours the individual employee worked
-     * @param {*} tipsTotal Total # of tips from input on client
+     * @param {number} tipsTotal Total # of tips from input on client
      * @returns Returns number amount of each employees' share of tips
      */
     function calcTip (hoursTotal, empHours, tipsTotal) {
@@ -26,16 +26,17 @@ function shareOfTips (tipsTotal, nameAndHours) {
         return empShare
     }
     let employeeShare = [];
-    let singleEmp = {};
     let hoursTotal = 0;
     // gets total hours from employees
     for (let employeeHours of nameAndHours) {
         hoursTotal += employeeHours.hours;
     }
+    // adds each employee and their share of total tips to an array
     for (let employeeTips of nameAndHours) {
-        singleEmp.name = employeeTips.name;
-        singleEmp.tips = calcTip(hoursTotal, employeeTips.hours, tipsTotal);
-        employeeShare.push(singleEmp);
+        employeeShare.push({
+            name: employeeTips.name,
+            tips: calcTip(hoursTotal, employeeTips.hours, tipsTotal)
+        });
     }
     return employeeShare
 }
