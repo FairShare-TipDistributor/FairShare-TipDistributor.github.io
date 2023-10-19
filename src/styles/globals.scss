@@ -114,27 +114,31 @@ h4 {
 .mobile-and-down {
 	display: inherit;
 
-	// @include tabletAndUp;
+	@include for-tablet-and-up {
+		display: none;
+	}
 }
 
 .tablet-and-down {
 	display: inherit;
 
-	// @include desktopAndUp;
+	@include for-desktop-and-up {
+		display: none;
+	}
 }
 
 .tablet-and-up {
 	display: none;
 
-	// @include tabletAndUp {
-	// 	display: inherit;
-	// }
+	@include for-tablet-and-up {
+		display: inherit;
+	}
 }
 
 .desktop-and-up {
 	display: none;
 
-	// @include desktopAndUp {
-	// 	display: inherit;
-	// }
+	@include for-desktop-and-up {
+		display: inherit;
+	}
 }
