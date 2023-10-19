@@ -15,16 +15,14 @@ $breakpoint-mobile-max-px: 899px;
 $breakpoint-tablet-min-px: 900px;
 $breakpoint-desktop-min-px: 1200px;
 
-// Targeted at small mobile devices and portrait-oriented smartphones
 @mixin for-phone-only {
 	@media only screen and (max-width: $breakpoint-mobile-max-px) {
 		@content;
 	}
 }
 
-// Targeted at larger smartphones in landscape mode + small tablets
 @mixin for-tablet-and-up {
-	@media only screen and (min-width: $breakpoint-tablet-portrait-min-px) {
+	@media only screen and (min-width: $breakpoint-tablet-min-px) {
 		@content;
 	}
 }

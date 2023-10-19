@@ -1,13 +1,13 @@
 ﻿// Color palette
-$colorDarkBlue: #175a87;
-$colorLightBlue: #5cc0df;
-$colorWhite: #fff;
-$colorLightGrey: #efefef;
-$colorBlack: #1f1f1f;
-$colorRed: #ad0000;
-$colorBlue: #0047d6;
+$color-red: #ad0000;
+$color-blue: #0047d6;
+$color-blue-dark: #175a87;
+$color-blue-light: #5cc0df;
+$color-white: #fff;
+$color-grey-light: #efefef;
+$color-black: #1f1f1f;
 
 // Context based colors
-$positiveAlertTextColor: $colorBlue;
-$errorTextColor: $colorRed;
-$defaultTextColor: $colorBlack;
+$positiveAlertTextColor: $color-blue;
+$errorTextColor: $color-red;
+$defaultTextColor: $color-black;

@@ -24,26 +24,26 @@
 }
 
 .primary-btn {
-	@include buttonDefaults($buttonBorderColor: $colorDarkBlue);
-	background-color: $colorDarkBlue;
+	@include buttonDefaults($buttonBorderColor: $color-blue-dark);
+	background-color: $color-blue-dark;
 	// Overwrite the color for .primary-btn to colorWhite instead of the defaultTextColor
-	color: $colorWhite;
+	color: $color-white;
 }
 
 .secondary-btn {
-	@include buttonDefaults($buttonBorderColor: $colorBlack);
-	background-color: $colorWhite;
+	@include buttonDefaults($buttonBorderColor: $color-black);
+	background-color: $color-white;
 
 	&:hover {
-		background-color: $colorLightBlue;
+		background-color: $color-blue-light;
 	}
 
 	&:active {
-		background-color: $colorWhite;
+		background-color: $color-white;
 	}
 }
 
 .tertiary-btn {
-	@include buttonDefaults($buttonBorderColor: $colorLightBlue);
-	background-color: $colorLightBlue;
+	@include buttonDefaults($buttonBorderColor: $color-blue-light);
+	background-color: $color-blue-light;
 }
