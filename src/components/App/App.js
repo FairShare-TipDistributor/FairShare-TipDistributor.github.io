@@ -1,21 +1,25 @@
 import "./App.css";
+import "../../fonts/Fonts.css";
+import {
+	PrimaryButton,
+	SecondaryButton,
+	TertiaryButton,
+} from "../Buttons/DesignedButtons";
 
 function App() {
 	return (
 		<div className="App">
-			<header className="App-header">
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-			</header>
+			<header className="App-header"></header>
+			<main>
+				<p>PrimaryButton</p>
+				<PrimaryButton text="Button" />
+				<br />
+				<p>SecondaryButton</p>
+				<SecondaryButton text="Button" />
+				<br />
+				<p>TertiaryButton</p>
+				<TertiaryButton text="Button" />
+			</main>
 		</div>
 	);
 }
