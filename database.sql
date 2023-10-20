@@ -1,4 +1,16 @@
-﻿CREATE TABLE "tips_date" (
+﻿CREATE TABLE "employees" (
+	"id" SERIAL PRIMARY KEY,
+	"name" VARCHAR(100)
+);
+
+CREATE TABLE "user" (
+    "id" SERIAL PRIMARY KEY,
+    "emp_id" INT REFERENCES "employees"("id"),
+    "username" VARCHAR (80) UNIQUE NOT NULL,
+    "password" VARCHAR (1000) NOT NULL
+);
+
+CREATE TABLE "date" (
     "id" SERIAL PRIMARY KEY,
     "date" DATE NOT NULL DEFAULT CURRENT_DATE,
     "tip_total" INT,
@@ -8,21 +20,33 @@
 
 CREATE TABLE "tips" (
     "id" SERIAL PRIMARY KEY,
-    "date_id" INT REFERENCES "tips_date"("id"),
-    "name" VARCHAR(100),
-    "share" INT
+    "date_id" INT REFERENCES "date"("id"),
+    "emp_id" INT REFERENCES "employees"("id"),
+    "share_total" INT,
+    "share_cash" INT,
+    "share_cc" INT
 );
 
+-- test data
 
--- Test inserts. When we insert date and tip total, we can return tips_date.id to insert into tips.date_id and reference tip information per date
+INSERT INTO "date" ("date", "tip_total", "cash_tips", "cc_tips") 
+VALUES ('1999-01-01', 400, 200, 200);
 
-INSERT INTO "tips_date" ("date", "tip_total")
-VALUES ('1999-01-01', 500)
-RETURNING "id";
+INSERT INTO "employees" ("name")
+VALUES ('Dave'), ('Joshua'), ('Mike'), ('Brendan');
 
-INSERT INTO "tips" ("date_id", "name", "share")
-VALUES (2, 'Tim', 250);
+INSERT INTO "tips" ("date_id", "emp_id", "share_total", "share_cash", "share_cc")
+VALUES (1, 1, 100, 50, 50), (1, 2, 100, 50, 50), (1, 3, 100, 50, 50), (1, 4, 100, 50, 50); 
 
-SELECT "name", "share"
-FROM "tips"
-JOIN "tips_date" on "date_id" = "tips_date"."id";
+-- test SQL queries
+
+SELECT "name", "date", "share_total", "share_cash", "share_cc"
+FROM "tips" 
+JOIN "date" on "tips"."date_id" = "date"."id"
+JOIN "employees" ON "tips"."emp_id" = "employees"."id";
+
+SELECT "name", "date", "share_total", "share_cash", "share_cc"
+FROM "tips" 
+JOIN "date" on "tips"."date_id" = "date"."id"
+JOIN "employees" ON "tips"."emp_id" = "employees"."id"
+WHERE "employees"."id" = 1;
