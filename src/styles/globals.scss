@@ -66,49 +66,49 @@
 	font-display: swap;
 }
 // ##################
-/* End Fonts */
+/* End Adding Fonts */
 // ##################
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	color: $defaultTextColor;
+	color: $text-color-default;
 }
 
 body {
 	margin: 0;
 	padding: 0;
 	// background-color: ;
-	@include textBodyRegular;
+	@include text-body-regular;
 }
 
 h1 {
-	@include textHeading01;
+	@include text-heading-01;
 }
 
 h2 {
-	@include textHeading02;
+	@include text-heading-02;
 }
 
 h3 {
-	@include textHeading03;
+	@include text-heading-03;
 }
 
 h4 {
-	@include textHeading04;
+	@include text-heading-04;
 }
 
 .subheading1 {
-	@include textSubheading01;
+	@include text-subheading-01;
 }
 
 .subheading2 {
-	@include textSubheading02;
+	@include text-subheading-02;
 }
 
 .subheading3 {
-	@include textSubheading03;
+	@include text-subheading-03;
 }
 
 .mobile-and-down {
