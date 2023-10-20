@@ -1,0 +1,145 @@
+﻿@use "./colors" as *;
+@use "./responsive" as *;
+
+@mixin text-display {
+	font-size: rem(80px);
+	line-height: rem(100px);
+	letter-spacing: -0.002em;
+	font-family: "Raleway-Black";
+
+	@include desktopAndUp {
+		font-size: rem(160px);
+		line-height: rem(200px);
+	}
+}
+
+@mixin text-heading-01 {
+	font-size: rem(54px);
+	line-height: rem(60px);
+	letter-spacing: -0.018em;
+	font-family: "Raleway-ExtraBold";
+
+	@include for-desktop-and-up {
+		font-size: rem(72px);
+		line-height: rem(80px);
+	}
+}
+
+@mixin text-heading-02 {
+	font-size: rem(36px);
+	line-height: rem(42px);
+	letter-spacing: -0.015em;
+	font-family: "Raleway-ExtraBold";
+
+	@include for-desktop-and-up {
+		font-size: rem(48px);
+		line-height: rem(56px);
+	}
+}
+
+@mixin text-heading-03 {
+	font-size: rem(25px);
+	line-height: rem(32px);
+	letter-spacing: -0.015em;
+	font-family: "Raleway-ExtraBold";
+
+	@include for-desktop-and-up {
+		font-size: rem(40px);
+		line-height: rem(48px);
+	}
+}
+
+@mixin text-heading-04 {
+	font-size: rem(24px);
+	line-height: rem(30px);
+	letter-spacing: -0.015em;
+	font-family: "Raleway-Bold";
+
+	@include for-desktop-and-up {
+		font-size: rem(36px);
+		line-height: rem(44px);
+	}
+}
+
+@mixin text-subheading-01 {
+	font-size: rem(16px);
+	line-height: rem(24px);
+	letter-spacing: -0.012em;
+	font-family: "Poppins SemiBold";
+
+	@include for-desktop-and-up {
+		font-size: rem(24px);
+		line-height: rem(32px);
+	}
+}
+
+@mixin text-subheading-02 {
+	font-size: rem(16px);
+	line-height: rem(24px);
+	letter-spacing: -0.015em;
+	font-family: "Poppins SemiBold";
+
+	@include for-desktop-and-up {
+		font-size: rem(20px);
+		line-height: rem(28px);
+	}
+}
+
+@mixin text-subheading-03 {
+	font-size: rem(16px);
+	line-height: rem(24px);
+	letter-spacing: -0.012em;
+	font-family: "Poppins SemiBold";
+}
+
+@mixin text-body-large {
+	font-size: rem(16px);
+	line-height: rem(24px);
+	letter-spacing: 0;
+	font-family: "Poppins Light";
+
+	@include for-desktop-and-up {
+		font-size: rem(18px);
+		line-height: rem(26px);
+	}
+}
+
+@mixin text-body-regular {
+	font-size: rem(16px);
+	line-height: rem(24px);
+	letter-spacing: 0;
+	font-family: "Poppins Light";
+}
+
+@mixin text-body-small {
+	font-size: rem(14px);
+	line-height: rem(20px);
+	letter-spacing: 0;
+	font-family: "Poppins Light";
+}
+
+@mixin text-body-tiny {
+	font-size: rem(12px);
+	line-height: rem(16px);
+	letter-spacing: 0;
+	font-family: "Poppins Light";
+}
+
+@mixin text-button-regular {
+	font-size: rem(14px);
+	line-height: rem(20px);
+	letter-spacing: 0;
+	font-family: "Poppins SemiBold";
+
+	@include for-desktop-and-up {
+		font-size: rem(17px);
+		line-height: rem(24px);
+	}
+}
+
+@mixin text-button-small {
+	font-size: rem(14px);
+	line-height: rem(20px);
+	letter-spacing: 0;
+	font-family: "Poppins SemiBold";
+}

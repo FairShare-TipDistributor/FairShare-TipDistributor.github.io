@@ -37,7 +37,8 @@
 		"eject": "react-scripts eject"
 	},
 	"devDependencies": {
-		"nodemon": "^3.0.1"
+		"nodemon": "^3.0.1",
+		"sass": "^1.69.3"
 	},
 	"eslintConfig": {
 		"extends": [

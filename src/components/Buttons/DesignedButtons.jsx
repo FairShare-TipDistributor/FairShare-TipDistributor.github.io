@@ -1,4 +1,5 @@
-﻿import "./DesignedButtons.css";
+﻿// import "./DesignedButtons.css";
+import "./DesignedButton.css";
 
 export function PrimaryButton({ text }) {
 	return <button className="primary-btn">{text}</button>;

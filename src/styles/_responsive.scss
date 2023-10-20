@@ -1,0 +1,30 @@
+﻿@use "sass:math";
+
+$standardFontSize: 16px;
+
+@function rem($pixels) {
+	@return (math.div($pixels, $standardFontSize)) * 1rem;
+}
+
+//Breakpoints
+$breakpoint-mobile-max-px: 899px;
+$breakpoint-tablet-min-px: 900px;
+$breakpoint-desktop-min-px: 1200px;
+
+@mixin for-phone-only {
+	@media only screen and (max-width: $breakpoint-mobile-max-px) {
+		@content;
+	}
+}
+
+@mixin for-tablet-and-up {
+	@media only screen and (min-width: $breakpoint-tablet-min-px) {
+		@content;
+	}
+}
+
+@mixin for-desktop-and-up {
+	@media only screen and (min-width: $breakpoint-desktop-min-px) {
+		@content;
+	}
+}
