@@ -1,11 +1,14 @@
+// Dinero handles cent differential by using Bankers/Half Even rounding
+const Dinero = require('dinero.js');
 
 // Test data. This will come from client in deployed version
-let tipsTotal = 2345.67;
+//! DINERO AMOUNTS ARE IN CENTS
+const tipsTotal = Dinero({amount: 56789, currency:'USD'});
 let nameAndHours = [
     {name:'Tim', hours:10},
     {name:'Allen', hours:20},
+    {name:'Bob', hours:5}
 ]
-
 
 /**
  * 
@@ -18,12 +21,13 @@ function shareOfTips (tipsTotal, nameAndHours) {
      * 
      * @param {number} hoursTotal total # of hours worked (derived in for loop)
      * @param {number} empHours hours the individual employee worked
-     * @param {number} tipsTotal Total # of tips from input on client
+     * @param {number} tipsTotal Total # of tips from input on client as Dinero Object
      * @returns Returns number amount of each employees' share of tips
      */
     function calcTip (hoursTotal, empHours, tipsTotal) {
-        let empShare = tipsTotal/hoursTotal * empHours
-        return empShare
+        let percent = empHours/hoursTotal * 100;
+        let empShare = tipsTotal.percentage(percent);
+        return empShare.getAmount()/100;
     }
     let employeeShare = [];
     let hoursTotal = 0;
@@ -42,4 +46,3 @@ function shareOfTips (tipsTotal, nameAndHours) {
 }
 
 console.log(shareOfTips(tipsTotal, nameAndHours));
-
