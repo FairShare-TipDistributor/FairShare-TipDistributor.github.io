@@ -5,7 +5,7 @@ require("dotenv").config();
 const app = express();
 
 // Route includes
-
+const tipsRouter = require('./routes/tips.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
