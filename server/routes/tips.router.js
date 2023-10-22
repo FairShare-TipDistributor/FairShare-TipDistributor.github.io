@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
   // GET route code here
   const queryText = `
-  SELECT "name", "date", "share_total", "share_cash", "share_cc"
+  SELECT "name", to_char("date", 'YYYY-MM-DD') AS date, "share_total", "share_cash", "share_cc"
   FROM "tips" 
   JOIN "date" on "tips"."date_id" = "date"."id"
   JOIN "employees" ON "tips"."emp_id" = "employees"."id"; 
