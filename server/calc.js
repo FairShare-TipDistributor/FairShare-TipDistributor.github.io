@@ -3,11 +3,13 @@ const Dinero = require('dinero.js');
 
 // Test data. This will come from client in deployed version
 //! DINERO AMOUNTS ARE IN CENTS
-const tipsTotal = Dinero({amount: 56789, currency:'USD'});
+const tipsTotal = Dinero({amount: 1003, currency:'USD'});
 let nameAndHours = [
-    {name:'Tim', hours:10},
-    {name:'Allen', hours:20},
-    {name:'Bob', hours:5}
+    {name:'Tim', hours:3},
+    {name:'Allen', hours:3},
+    {name:'Bob', hours:3},
+    {name: 'Lenny', hours: 3},
+    {name: 'Brendan', hours: 3},
 ]
 
 /**
@@ -45,4 +47,28 @@ function shareOfTips (tipsTotal, nameAndHours) {
     return employeeShare
 }
 
-console.log(shareOfTips(tipsTotal, nameAndHours));
+// console.log(shareOfTips(tipsTotal, nameAndHours));
+
+
+// const testDinero = Dinero({amount: 1000, currency:'USD'});
+
+// let testOutput = testDinero.allocate([1/3, 1/3, 1/3]);
+
+// console.log(testOutput[0].getAmount());
+// console.log(testOutput[1].getAmount());
+// console.log(testOutput[2].getAmount());
+
+function calcTip (hoursTotal) {
+    let allocations = [];
+    let i = 0;
+    for (let employee of nameAndHours) {
+        allocations.push(employee.hours/hoursTotal * 100);
+    }
+    let payout = tipsTotal.allocate(allocations);
+    while (i < payout.length) {
+        console.log(payout[i].getAmount());
+        i ++;
+    }
+}
+
+calcTip(15);
