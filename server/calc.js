@@ -21,10 +21,11 @@ let nameAndHours = [
 function shareOfTips (tipsTotal, nameAndHours) {
     let hoursTotal = 0;
     // Shuffles array to give remainder randomly
-    let shuffledNameAndHours = nameAndHours.sort( () => Math.random() - 0.5);
+    let shuffledNameAndHours = [];
+    shuffledNameAndHours.employees = nameAndHours.sort( () => Math.random() - 0.5);
 
     // gets total hours from employees
-    for (let employeeHours of shuffledNameAndHours) {
+    for (let employeeHours of shuffledNameAndHours.employees) {
         hoursTotal += employeeHours.hours;
     }
     // Adds total hours to array of objects
@@ -34,7 +35,7 @@ function shareOfTips (tipsTotal, nameAndHours) {
     let allocations = [];
     let i = 0;
     // Adds each employee's time as percentage of total time to allocations array
-    for (let employee of shuffledNameAndHours) {
+    for (let employee of shuffledNameAndHours.employees) {
         allocations.push(employee.hours/hoursTotal * 100);
     }
     // Allocates tips based on percentage of total hours
@@ -42,7 +43,7 @@ function shareOfTips (tipsTotal, nameAndHours) {
     
     // Adds payout to nameAndHours
     while (i < payout.length) {
-        nameAndHours[i].share = payout[i].getAmount()/100;
+        shuffledNameAndHours.employees[i].share = payout[i].getAmount()/100;
         i++;
     }
         console.log(shuffledNameAndHours);
