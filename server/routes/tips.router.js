@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
   const queryText = `
-  SELECT "name", to_char("date", 'YYYY-MM-DD') AS date, "share_total", "share_cash", "share_cc"
+  SELECT "name", "employees"."id", to_char("date", 'YYYY-MM-DD') AS date, "share_total", "share_cash", "share_cc"
   FROM "tips" 
   JOIN "date" on "tips"."date_id" = "date"."id"
   JOIN "employees" ON "tips"."emp_id" = "employees"."id"; 
@@ -24,16 +24,20 @@ router.get('/', (req, res) => {
  * POST route 
  */
 router.post('/', async (req, res) => {
-  //connect to PostGreSQL database
   console.log(req.body);
-  const { tipsTotal, employeeInfo } = req.body;
-  const db = await pool.connect();
   let dateId;
+  const { tipsTotal, employeeInfo } = req.body;
 
+  //! Import calc.js and use it to process req, might alter code down the line
+
+  //connect to PostGreSQL database
+  const db = await pool.connect();
+
+  // Begin SQL queries
   try {
     await db.query('BEGIN');
 
-    //! Insert for date table. Adds current date and tip total returning date ID
+    //! Insert for date table. Adds current date and tip total, returning date ID
     let queryText = `
       INSERT INTO "date"("date", "tip_total")
       VALUES (CURRENT_DATE, $1)
@@ -44,11 +48,16 @@ router.post('/', async (req, res) => {
       console.log(dateId);
     });
 
-    //! Insert for employee data and payout
-    queryText = 
+    //! Insert for employee data and payout using date ID
+    queryText = `
+      INSERT INTO "tips" ("date_id", "emp_id", "share_total")
+      VALUES ($1, $2, $3);
+    `;
+
+    for await (let employee of employeeInfo) {
+      db.query(queryText, [dateId, employee.emp_id, employee.share]);
+    }
     
-
-
     // If no errors, all queries will be commited to db
     await db.query('COMMIT');
     res.sendStatus(200);
