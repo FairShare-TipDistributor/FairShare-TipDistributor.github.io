@@ -5,10 +5,14 @@ require("dotenv").config();
 const app = express();
 
 // Route includes
+const tipsRouter = require('./routes/tips.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+/* Routes */
+app.use('/tips', tipsRouter);
 
 // Serve static files
 app.use(express.static("build"));

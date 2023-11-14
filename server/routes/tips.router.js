@@ -3,17 +3,71 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 /**
- * GET route template
+ * GET route 
  */
 router.get('/', (req, res) => {
-  // GET route code here
+  const queryText = `
+  SELECT "name", "employees"."id", to_char("date", 'YYYY-MM-DD') AS date, "share_total", "share_cash", "share_cc"
+  FROM "tips" 
+  JOIN "date" on "tips"."date_id" = "date"."id"
+  JOIN "employees" ON "tips"."emp_id" = "employees"."id"; 
+  `;
+  pool.query(queryText).then(result => {
+    res.send(result.rows);
+  }).catch(error => {
+    console.log(`Error in GET tipsRouter ${error}`);
+    res.sendStatus(500);
+  });
 });
 
 /**
- * POST route template
+ * POST route 
  */
-router.post('/', (req, res) => {
-  // POST route code here
+router.post('/', async (req, res) => {
+  console.log(req.body);
+  let dateId;
+  const { tipsTotal, employeeInfo } = req.body;
+
+  //! Import calc.js and use it to process req, might alter code down the line
+
+  //connect to PostGreSQL database
+  const db = await pool.connect();
+
+  // Begin SQL queries
+  try {
+    await db.query('BEGIN');
+
+    //! Insert for date table. Adds current date and tip total, returning date ID
+    let queryText = `
+      INSERT INTO "date"("date", "tip_total")
+      VALUES (CURRENT_DATE, $1)
+      RETURNING "date"."id";
+    `;
+    await db.query(queryText, [tipsTotal]).then(res => {
+      dateId = res.rows[0].id;
+      console.log(dateId);
+    });
+
+    //! Insert for employee data and payout using date ID
+    queryText = `
+      INSERT INTO "tips" ("date_id", "emp_id", "share_total")
+      VALUES ($1, $2, $3);
+    `;
+
+    for await (let employee of employeeInfo) {
+      db.query(queryText, [dateId, employee.emp_id, employee.share]);
+    }
+    
+    // If no errors, all queries will be commited to db
+    await db.query('COMMIT');
+    res.sendStatus(200);
+  } catch(error) {
+    // If a query has an error, none of the queries will succeed
+    // and an error is shown
+    console.log('ROLLBACK', error);
+    await db.query('ROLLBACK');
+    res.sendStatus(500);
+  }
 });
 
 /**
