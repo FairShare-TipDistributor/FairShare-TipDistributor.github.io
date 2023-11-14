@@ -1,14 +1,16 @@
-// Dinero handles cent differential by using Bankers/Half Even rounding
+// Dinero handles cent differential
 const Dinero = require('dinero.js');
 
 // Test data. This will come from client in deployed version
 //! DINERO AMOUNTS ARE IN CENTS
-const tipsTotal = Dinero({amount: 56789, currency:'USD'});
+const tipsTotal = Dinero({amount: 10000, currency:'USD'});
 let nameAndHours = [
-    {name:'Tim', hours:10},
-    {name:'Allen', hours:20},
-    {name:'Bob', hours:5}
-]
+    {name:'Tim', id: 1, hours:3},
+    {name:'Allen', id: 2, hours:2},
+    {name:'Bob', id: 3, hours:4},
+    {name: 'Lenny', id: 4, hours: 10},
+    {name: 'Brendan', id: 5, hours: 1.6},
+];
 
 /**
  * 
@@ -17,32 +19,41 @@ let nameAndHours = [
  * @returns Returns object with employee names and their share of tips
  */
 function shareOfTips (tipsTotal, nameAndHours) {
-    /**
-     * 
-     * @param {number} hoursTotal total # of hours worked (derived in for loop)
-     * @param {number} empHours hours the individual employee worked
-     * @param {number} tipsTotal Total # of tips from input on client as Dinero Object
-     * @returns Returns number amount of each employees' share of tips
-     */
-    function calcTip (hoursTotal, empHours, tipsTotal) {
-        let percent = empHours/hoursTotal * 100;
-        let empShare = tipsTotal.percentage(percent);
-        return empShare.getAmount()/100;
-    }
-    let employeeShare = [];
     let hoursTotal = 0;
+    // Shuffles array to give remainder randomly
+    let shuffledNameAndHours = [];
+    shuffledNameAndHours.employees = nameAndHours.sort( () => Math.random() - 0.5);
+
     // gets total hours from employees
-    for (let employeeHours of nameAndHours) {
+    for (let employeeHours of shuffledNameAndHours.employees) {
         hoursTotal += employeeHours.hours;
     }
+    // Adds total hours to array of objects
+    shuffledNameAndHours.totalHours =  hoursTotal;
+
     // adds each employee and their share of total tips to an array
-    for (let employeeTips of nameAndHours) {
-        employeeShare.push({
-            name: employeeTips.name,
-            tips: calcTip(hoursTotal, employeeTips.hours, tipsTotal)
-        });
+    let allocations = [];
+    let i = 0;
+    // Adds each employee's time as percentage of total time to allocations array
+    for (let employee of shuffledNameAndHours.employees) {
+        allocations.push(employee.hours/hoursTotal * 100);
     }
-    return employeeShare
+    // Allocates tips based on percentage of total hours
+    let payout = tipsTotal.allocate(allocations);
+    
+    // Adds payout to nameAndHours
+    while (i < payout.length) {
+        shuffledNameAndHours.employees[i].share = payout[i].getAmount()/100;
+        i++;
+    }
+        console.log(shuffledNameAndHours);
+    
+    return shuffledNameAndHours;
 }
 
-console.log(shareOfTips(tipsTotal, nameAndHours));
+shareOfTips(tipsTotal, nameAndHours);
+
+
+
+
+
