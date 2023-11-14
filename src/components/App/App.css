@@ -1,5 +1,11 @@
-.App {
+.App-header {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin: auto;
+}
+
+main {
+	margin: 1% 30%;
 }
