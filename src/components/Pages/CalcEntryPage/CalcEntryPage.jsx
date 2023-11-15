@@ -2,7 +2,7 @@
 import { PrimaryButton } from "../../Buttons/DesignedButtons";
 import { useDispatch } from "react-redux";
 // import additional components
-import EmployeeInput from "./CalcPageComponents/EmployeeInputComponents/EmployeeInput";
+import EmployeeInput from "./CalcPageComponents/EmployeeInput";
 import InputTipPool from "./CalcPageComponents/InputTipPool";
 
 export default function CalcEntryPage() {
@@ -44,18 +44,21 @@ export default function CalcEntryPage() {
 					setTotalTipPool={setTotalTipPool}
 				/>
 				<h3>Employee Details</h3>
-				<EmployeeInput
-					activeEmployees={activeEmployees}
-					setActiveEmployees={setActiveEmployees}
-				/>
 				{activeEmployees.map((employee) => {
 					return (
 						<EmployeeInput
 							activeEmployees={activeEmployees}
 							setActiveEmployees={setActiveEmployees}
+							key={employee.id}
 						/>
 					);
 				})}
+				<EmployeeInput
+					activeEmployees={activeEmployees}
+					setActiveEmployees={setActiveEmployees}
+				/>
+
+				<br />
 			</form>
 			<PrimaryButton text="Calculate" func={calculateTips} />
 			<h4>Results</h4>
