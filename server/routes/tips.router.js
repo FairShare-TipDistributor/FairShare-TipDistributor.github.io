@@ -1,6 +1,8 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+// importing calc.js which allocates tips
+import shareOfTips from '../calc';
 
 /**
  * GET route 
@@ -27,6 +29,9 @@ router.post('/', async (req, res) => {
   console.log(req.body);
   let dateId;
   const { tipsTotal, employeeInfo } = req.body;
+  let shuffledNameAndHours = [];
+  shareOfTips(tipsTotal, employeeInfo);
+
 
   //! Import calc.js and use it to process req, might alter code down the line
 

@@ -53,6 +53,7 @@ function shareOfTips (tipsTotal, nameAndHours) {
 
 shareOfTips(tipsTotal, nameAndHours);
 
+export default shareOfTips;
 
 
 
