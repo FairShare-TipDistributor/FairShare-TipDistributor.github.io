@@ -13,6 +13,7 @@ CREATE TABLE "user" (
 CREATE TABLE "date" (
     "id" SERIAL PRIMARY KEY,
     "date" DATE NOT NULL DEFAULT CURRENT_DATE,
+    "hours_total" INT,
     "tip_total" INT,
     "cash_tips" INT,
     "cc_tips" INT
@@ -22,6 +23,7 @@ CREATE TABLE "tips" (
     "id" SERIAL PRIMARY KEY,
     "date_id" INT REFERENCES "date"("id"),
     "emp_id" INT REFERENCES "employees"("id"),
+    "hours" INT,
     "share_total" INT,
     "share_cash" INT,
     "share_cc" INT
