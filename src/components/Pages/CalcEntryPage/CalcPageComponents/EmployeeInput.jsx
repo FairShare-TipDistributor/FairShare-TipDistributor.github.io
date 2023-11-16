@@ -1,29 +1,51 @@
-﻿import { useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 export default function EmployeeInput({
 	activeEmployees,
 	setActiveEmployees,
+	employee,
 }) {
-	console.log(
-		"activeEmployees inside EmployeeInput:",
-		activeEmployees
+	const defaultCurrentEmployee = { id: 0, hours: 0 };
+	const [currentEmployee, setCurrentEmployee] = useState(
+		defaultCurrentEmployee
 	);
-	const [currentEmployee, setCurrentEmployee] = useState({
-		id: 0,
-		hours: 0,
-	});
-
 	const employees = [
 		{ id: 1, name: "Brendan" },
 		{ id: 2, name: "Dave" },
 		{ id: 3, name: "Joshua" },
 		{ id: 4, name: "Mike" },
 	];
-	// If the store is populated use that to set clockedInEmployees
-	//TODO: While building, populate clockedInEmployees with employees array, Remove || once route is set up
+
+	/**
+	 * * If the store is populated use that to set clockedInEmployees
+	 * TODO: While building, populate clockedInEmployees with employees array,
+	 * TODO: Remove || once route is set up
+	 */
 	const clockedInEmployees =
 		useSelector((store) => store.employees) || employees;
+
+	console.log(
+		"activeEmployees inside EmployeeInput:",
+		activeEmployees
+	);
+
+	useEffect(() => {
+		if (employee) {
+			console.log("***********");
+			console.log("***********");
+			console.log("inside useEffect for EmployeeInput");
+			console.log("employee id:", employee.id);
+			console.log("employee hours:", employee.hours);
+			console.log("***********");
+			console.log("***********");
+			setCurrentEmployee({
+				...currentEmployee,
+				id: employee.id,
+				hours: employee.hours,
+			});
+		}
+	}, []);
 
 	const addEmployeeId = (e) => {
 		e.preventDefault();
@@ -54,6 +76,7 @@ export default function EmployeeInput({
 			) {
 				employeeArray.push(currentEmployee);
 				setActiveEmployees(employeeArray);
+				setCurrentEmployee(defaultCurrentEmployee);
 			}
 			console.log(activeEmployees);
 		};
@@ -75,13 +98,14 @@ export default function EmployeeInput({
 			<button onClick={removeEmployee}>Remove Employee</button>
 		);
 
-		// If the currentEmployee is the end of the activeEmployees array,
-		// render both the "Add More" and "Remove Employee" buttons
-		if (activeEmployees)
+		if (activeEmployees.length > 0) {
+			/**
+			 * * If the currentEmployee is the end of the activeEmployees array,
+			 * * render both the "Add More" and "Remove Employee" buttons
+			 */
 			if (
-				activeEmployees[0] &&
 				activeEmployees[activeEmployees.length - 1] ===
-					currentEmployee
+				currentEmployee
 			) {
 				return (
 					<>
@@ -89,42 +113,50 @@ export default function EmployeeInput({
 						<RemoveEmployeeBtn />
 					</>
 				);
-			}
-			// If the current Employee is not at the end of the activeEmployees array,
-			// render the "Remove Employee" button
-			else if (
-				activeEmployees[activeEmployees.length - 1] !==
-					currentEmployee &&
-				activeEmployees.length >= 1
-			) {
+			} else {
+				/**
+				 * *If the current Employee is not at the end of the activeEmployees array,
+				 * *render the "Remove Employee" button
+				 */
 				console.log(
 					"activeEmployees inside EmployeeInput RenderButtons else if:",
 					activeEmployees
 				);
 				return <RemoveEmployeeBtn />;
 			}
-			// If activeEmployees does not have any thing added,
-			// only render the "Add More" button
-			else {
-				return <AddMoreBtn />;
-			}
+		} else {
+			/**
+			 * * If activeEmployees does not have any thing added,
+			 * * only render the "Add More" button
+			 */
+			return <AddMoreBtn />;
+		}
 	};
+
+	console.log(
+		"currentEmployee.id after useEffect:",
+		currentEmployee.id
+	);
+	console.log(
+		"currentEmployee.hours after useEffect:",
+		currentEmployee.hours
+	);
 
 	return (
 		<>
 			<label htmlFor="employee-name">Employee Name: </label>
 			<select
 				name="employee-name"
-				defaultValue={"select-an-employee"}
+				value={currentEmployee.id}
 				onChange={addEmployeeId}
 			>
-				<option value="select-an-employee" disabled>
+				<option value={0} disabled>
 					Select an Employee
 				</option>
 				{clockedInEmployees.map((e) => {
 					console.log(
-						"clockedInEmployees:",
-						clockedInEmployees
+						"clockedInEmployee (e.name):",
+						e.name
 					);
 					return (
 						<option key={e.id} value={e.id}>

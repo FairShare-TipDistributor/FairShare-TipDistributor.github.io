@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 // import additional components
 import EmployeeInput from "./CalcPageComponents/EmployeeInput";
 import InputTipPool from "./CalcPageComponents/InputTipPool";
+import "./CalcEntryPage.css";
 
 export default function CalcEntryPage() {
 	const dispatch = useDispatch();
@@ -49,14 +50,17 @@ export default function CalcEntryPage() {
 						<EmployeeInput
 							activeEmployees={activeEmployees}
 							setActiveEmployees={setActiveEmployees}
+							employee={employee}
 							key={employee.id}
 						/>
 					);
 				})}
-				<EmployeeInput
-					activeEmployees={activeEmployees}
-					setActiveEmployees={setActiveEmployees}
-				/>
+				<div className="red-border">
+					<EmployeeInput
+						activeEmployees={activeEmployees}
+						setActiveEmployees={setActiveEmployees}
+					/>
+				</div>
 
 				<br />
 			</form>
