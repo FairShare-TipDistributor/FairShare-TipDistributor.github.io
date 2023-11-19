@@ -1,8 +1,9 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
-// importing calc.js which allocates tips
-import shareOfTips from '../calc';
+// importing calc.js which allocates tips and uses Dinero.js
+const shareOfTips = require('../calc.js');
+const Dinero = require('dinero.js');
 
 /**
  * GET route 
@@ -29,11 +30,10 @@ router.post('/', async (req, res) => {
   console.log(req.body);
   let dateId;
   const { tipsTotal, employeeInfo } = req.body;
-  let shuffledNameAndHours = [];
-  shareOfTips(tipsTotal, employeeInfo);
-
-
-  //! Import calc.js and use it to process req, might alter code down the line
+  // Takes total tips and makes it into a Dinero object
+  const dineroTipsTotal = Dinero({amount: tipsTotal, currency:'USD'});
+  // Passes Dinero object and employee info to calc.js which allocates tips
+  let empTips = shareOfTips(dineroTipsTotal, employeeInfo);
 
   //connect to PostGreSQL database
   const db = await pool.connect();
@@ -44,23 +44,23 @@ router.post('/', async (req, res) => {
 
     //! Insert for date table. Adds current date and tip total, returning date ID
     let queryText = `
-      INSERT INTO "date"("date", "tip_total")
-      VALUES (CURRENT_DATE, $1)
+      INSERT INTO "date"("date", "hours_total", "tip_total")
+      VALUES (CURRENT_DATE, $1, $2)
       RETURNING "date"."id";
     `;
-    await db.query(queryText, [tipsTotal]).then(res => {
+    await db.query(queryText, [tipsTotal, empTips.totalHours]).then(res => {
       dateId = res.rows[0].id;
       console.log(dateId);
     });
 
     //! Insert for employee data and payout using date ID
     queryText = `
-      INSERT INTO "tips" ("date_id", "emp_id", "share_total")
-      VALUES ($1, $2, $3);
+      INSERT INTO "tips" ("date_id", "emp_id", "hours", "share_total")
+      VALUES ($1, $2, $3, $4);
     `;
 
-    for await (let employee of employeeInfo) {
-      db.query(queryText, [dateId, employee.emp_id, employee.share]);
+    for await (let employee of empTips.employees) {
+      db.query(queryText, [dateId, employee.emp_id, employee.hours, employee.share]);
     }
     
     // If no errors, all queries will be commited to db

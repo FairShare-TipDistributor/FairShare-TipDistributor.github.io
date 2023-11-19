@@ -1,21 +1,7 @@
-// Dinero handles cent differential
-const Dinero = require('dinero.js');
-
-// Test data. This will come from client in deployed version
-//! DINERO AMOUNTS ARE IN CENTS
-const tipsTotal = Dinero({amount: 10000, currency:'USD'});
-let nameAndHours = [
-    {name:'Tim', id: 1, hours:3},
-    {name:'Allen', id: 2, hours:2},
-    {name:'Bob', id: 3, hours:4},
-    {name: 'Lenny', id: 4, hours: 10},
-    {name: 'Brendan', id: 5, hours: 1.6},
-];
-
 /**
  * 
  * @param {*} tipsTotal Total amount of tips from client
- * @param {*} nameAndHours array of objects containing employee name and hours worked
+ * @param {*} nameAndHours array of objects containing employee name, id, and hours worked
  * @returns Returns object with employee names and their share of tips
  */
 function shareOfTips (tipsTotal, nameAndHours) {
@@ -51,9 +37,9 @@ function shareOfTips (tipsTotal, nameAndHours) {
     return shuffledNameAndHours;
 }
 
-shareOfTips(tipsTotal, nameAndHours);
+module.exports = shareOfTips;
 
-export default shareOfTips;
+
 
 
 
