@@ -11,10 +11,10 @@ export default function EmployeeInput({
 		defaultCurrentEmployee
 	);
 	const employees = [
-		{ id: 1, name: "Brendan" },
-		{ id: 2, name: "Dave" },
-		{ id: 3, name: "Joshua" },
-		{ id: 4, name: "Mike" },
+		{ id: 1, name: "Brendan", selected: false },
+		{ id: 2, name: "Dave", selected: false },
+		{ id: 3, name: "Joshua", selected: false },
+		{ id: 4, name: "Mike", selected: false },
 	];
 
 	/**
@@ -32,13 +32,6 @@ export default function EmployeeInput({
 
 	useEffect(() => {
 		if (employee) {
-			console.log("***********");
-			console.log("***********");
-			console.log("inside useEffect for EmployeeInput");
-			console.log("employee id:", employee.id);
-			console.log("employee hours:", employee.hours);
-			console.log("***********");
-			console.log("***********");
 			setCurrentEmployee({
 				...currentEmployee,
 				id: employee.id,
@@ -53,7 +46,8 @@ export default function EmployeeInput({
 		console.log(`You selected ${selectedEmployeeId}`);
 		setCurrentEmployee({
 			...currentEmployee,
-			id: selectedEmployeeId,
+			id: Number(selectedEmployeeId),
+			selected: true,
 		});
 	};
 
@@ -72,7 +66,8 @@ export default function EmployeeInput({
 			const employeeArray = [...activeEmployees];
 			if (
 				!employeeArray.includes(currentEmployee) &&
-				currentEmployee.hours > 0
+				currentEmployee.hours > 0 &&
+				currentEmployee.id !== 0
 			) {
 				employeeArray.push(currentEmployee);
 				setActiveEmployees(employeeArray);
@@ -88,59 +83,44 @@ export default function EmployeeInput({
 			setActiveEmployees(updatedEmployees);
 		};
 
-		const AddMoreBtn = () => {
-			return (
-				<button onClick={addMoreEmployees}>Add More</button>
-			);
-		};
+		const AddMoreBtn = () => (
+			<button onClick={addMoreEmployees}>Add More</button>
+		);
 
 		const RemoveEmployeeBtn = () => (
 			<button onClick={removeEmployee}>Remove Employee</button>
 		);
 
-		if (activeEmployees.length > 0) {
-			/**
-			 * * If the currentEmployee is the end of the activeEmployees array,
-			 * * render both the "Add More" and "Remove Employee" buttons
-			 */
-			if (
-				activeEmployees[activeEmployees.length - 1] ===
-				currentEmployee
-			) {
-				return (
-					<>
-						<AddMoreBtn />
-						<RemoveEmployeeBtn />
-					</>
-				);
-			} else {
-				/**
-				 * *If the current Employee is not at the end of the activeEmployees array,
-				 * *render the "Remove Employee" button
-				 */
-				console.log(
-					"activeEmployees inside EmployeeInput RenderButtons else if:",
-					activeEmployees
-				);
-				return <RemoveEmployeeBtn />;
-			}
+		if (activeEmployees.length === 0) {
+			// * If activeEmployees is empty, only include AddMoreBtn
+			return <AddMoreBtn />;
+		} else if (employee) {
+			// * If activeEmployees is not empty and employee prop is passed down, include RemoveEmployeeBtn
+			return <RemoveEmployeeBtn />;
 		} else {
-			/**
-			 * * If activeEmployees does not have any thing added,
-			 * * only render the "Add More" button
-			 */
+			// * If activeEmployees is not empty and no employee prop is passed down, only include AddMoreBtn
 			return <AddMoreBtn />;
 		}
 	};
 
-	console.log(
-		"currentEmployee.id after useEffect:",
-		currentEmployee.id
-	);
-	console.log(
-		"currentEmployee.hours after useEffect:",
-		currentEmployee.hours
-	);
+	const checkToDisable = (e) => {
+		if (activeEmployees.length > 0) {
+			console.log("inside checkToDisable");
+			console.log("e.id inside checkToDisable", e.id);
+			for (let activeE of activeEmployees) {
+				console.log("activeE.id inside forLoop", activeE.id);
+				if (
+					e.id === activeE.id &&
+					activeE.selected === true
+				) {
+					console.log("e.id:", e.id);
+					console.log("e.selected:", e.selected);
+					return true;
+				}
+			}
+		}
+		return false;
+	};
 
 	return (
 		<>
@@ -154,12 +134,12 @@ export default function EmployeeInput({
 					Select an Employee
 				</option>
 				{clockedInEmployees.map((e) => {
-					console.log(
-						"clockedInEmployee (e.name):",
-						e.name
-					);
 					return (
-						<option key={e.id} value={e.id}>
+						<option
+							key={e.id}
+							value={e.id}
+							disabled={checkToDisable(e)}
+						>
 							{e.name}
 						</option>
 					);
