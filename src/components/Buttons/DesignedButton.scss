@@ -26,7 +26,8 @@
 .primary-btn {
 	@include buttonDefaults($buttonBorderColor: $color-blue-dark);
 	background-color: $color-blue-dark;
-	// Overwrite the color for .primary-btn to colorWhite instead of the defaultTextColor
+	// Overwrite the color for .primary-btn to colorWhite
+	// instead of the defaultTextColor
 	color: $color-white;
 }
 
