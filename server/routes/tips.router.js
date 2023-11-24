@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
 
     //! Insert for date table. Adds current date and tip total, returning date ID
     let queryText = `
-      INSERT INTO "date"("date", "hours_total", "tip_total")
+      INSERT INTO "date"("date", "tip_total", "hours_total")
       VALUES (CURRENT_DATE, $1, $2)
       RETURNING "date"."id";
     `;
