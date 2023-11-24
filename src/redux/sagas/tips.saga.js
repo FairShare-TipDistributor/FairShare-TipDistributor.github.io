@@ -5,7 +5,7 @@ function* postTips(action) {
 	try {
 		yield axios.post("/tips", action.payload);
 		console.log(action.payload);
-		// yield put({ type: 'INSERT GET COMMAND ONCE MADE})
+		yield put({ type: "FETCH_TIPS" });
 	} catch (error) {
 		console.log(`error in postTips ${error}`);
 		alert("Something went wrong");

@@ -10,9 +10,7 @@ export default function EmployeeInput({
 	const [currentEmployee, setCurrentEmployee] = useState(
 		defaultCurrentEmployee
 	);
-	const clockedInEmployees = useSelector(
-		(store) => store.employees
-	);
+	const employeesArray = useSelector((store) => store.employees);
 
 	useEffect(() => {
 		if (employee) {
@@ -118,7 +116,7 @@ export default function EmployeeInput({
 				<option value={0} disabled>
 					Select an Employee
 				</option>
-				{clockedInEmployees.map((e) => {
+				{employeesArray.map((e) => {
 					return (
 						<option
 							key={e.id}

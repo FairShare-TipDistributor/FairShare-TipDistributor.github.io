@@ -1,6 +1,6 @@
 ﻿import { useEffect, useState } from "react";
 import { PrimaryButton } from "../../Buttons/DesignedButtons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import additional components
 import EmployeeInput from "./CalcPageComponents/EmployeeInput";
 import InputTipPool from "./CalcPageComponents/InputTipPool";
@@ -10,7 +10,7 @@ export default function CalcEntryPage() {
 	const dispatch = useDispatch();
 	const [activeEmployees, setActiveEmployees] = useState([]);
 	const [totalTipPool, setTotalTipPool] = useState("");
-	const calculations = "calculations will go here";
+	const calculations = useSelector((store) => store.tips);
 
 	useEffect(() => {
 		dispatch({ type: "FETCH_EMPLOYEES" });
@@ -67,7 +67,17 @@ export default function CalcEntryPage() {
 			<PrimaryButton text="Calculate" func={calculateTips} />
 			<h4>Results</h4>
 			<h5>Tips per hour worked: </h5>
-			<ul>{calculations}</ul>
+			<ul>
+				{calculations.map((tip) => {
+					return (
+						<li key={tip.id}>
+							emp_id: {tip.emp_id}, name: {tip.name},
+							date: {tip.date}, share_total: $
+							{tip.share_total}
+						</li>
+					);
+				})}
+			</ul>
 		</>
 	);
 }
