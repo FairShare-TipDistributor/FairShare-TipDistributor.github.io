@@ -13,19 +13,22 @@ CREATE TABLE "user" (
 CREATE TABLE "date" (
     "id" SERIAL PRIMARY KEY,
     "date" DATE NOT NULL DEFAULT CURRENT_DATE,
-    "tip_total" INT,
-    "cash_tips" INT,
-    "cc_tips" INT
+    "hours_total" NUMERIC,
+    "tip_total" NUMERIC,
+    "cash_tips" NUMERIC,
+    "cc_tips" NUMERIC
 );
 
 CREATE TABLE "tips" (
     "id" SERIAL PRIMARY KEY,
     "date_id" INT REFERENCES "date"("id"),
     "emp_id" INT REFERENCES "employees"("id"),
-    "share_total" INT,
-    "share_cash" INT,
-    "share_cc" INT
+    "hours" NUMERIC,
+    "share_total" NUMERIC,
+    "share_cash" NUMERIC,
+    "share_cc" NUMERIC
 );
+
 
 -- test data
 
@@ -38,8 +41,6 @@ VALUES ('Dave'), ('Joshua'), ('Mike'), ('Brendan');
 INSERT INTO "tips" ("date_id", "emp_id", "share_total", "share_cash", "share_cc")
 VALUES (1, 1, 100, 50, 50), (1, 2, 100, 50, 50), (1, 3, 100, 50, 50), (1, 4, 100, 50, 50); 
 
--- test SQL queries
-
 SELECT "name", "date", "share_total", "share_cash", "share_cc"
 FROM "tips" 
 JOIN "date" on "tips"."date_id" = "date"."id"
@@ -50,3 +51,4 @@ FROM "tips"
 JOIN "date" on "tips"."date_id" = "date"."id"
 JOIN "employees" ON "tips"."emp_id" = "employees"."id"
 WHERE "employees"."id" = 1;
+
