@@ -13,24 +13,24 @@ export default function CalcEntryPage() {
 	const calculations = "calculations will go here";
 
 	useEffect(() => {
-		dispatch({ type: "GET_CLOCKED_IN_EMPLOYEES" });
+		dispatch({ type: "FETCH_EMPLOYEES" });
 	}, []);
 
 	const calculateTips = (e) => {
 		e.preventDefault();
 		console.log("Clicked on Calculate button");
-		console.log("activeEmployees:", activeEmployees);
-		console.log("totalTipPool:", totalTipPool);
+		// console.log("activeEmployees:", activeEmployees);
+		// console.log("totalTipPool:", totalTipPool);
 		if (
 			!isNaN(totalTipPool) &&
 			totalTipPool !== 0 &&
 			activeEmployees.length !== 0
 		) {
 			dispatch({
-				type: "CALCULATE_EMPLOYEE_TIPS",
+				type: "ADD_TIPS",
 				payload: {
-					totalTipPool: Number(totalTipPool),
-					activeEmployees,
+					tipsTotal: Number(totalTipPool),
+					employeeInfo: activeEmployees,
 				},
 			});
 		}
@@ -51,7 +51,7 @@ export default function CalcEntryPage() {
 							activeEmployees={activeEmployees}
 							setActiveEmployees={setActiveEmployees}
 							employee={employee}
-							key={employee.id}
+							key={employee.emp_id}
 						/>
 					);
 				})}

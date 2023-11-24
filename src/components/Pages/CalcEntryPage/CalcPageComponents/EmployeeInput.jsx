@@ -6,35 +6,20 @@ export default function EmployeeInput({
 	setActiveEmployees,
 	employee,
 }) {
-	const defaultCurrentEmployee = { id: 0, hours: 0 };
+	const defaultCurrentEmployee = { emp_id: 0, hours: 0 };
 	const [currentEmployee, setCurrentEmployee] = useState(
 		defaultCurrentEmployee
 	);
-	const employees = [
-		{ id: 1, name: "Brendan", selected: false },
-		{ id: 2, name: "Dave", selected: false },
-		{ id: 3, name: "Joshua", selected: false },
-		{ id: 4, name: "Mike", selected: false },
-	];
-
-	/**
-	 * * If the store is populated use that to set clockedInEmployees
-	 * TODO: While building, populate clockedInEmployees with employees array,
-	 * TODO: Remove || once route is set up
-	 */
-	const clockedInEmployees =
-		useSelector((store) => store.employees) || employees;
-
-	console.log(
-		"activeEmployees inside EmployeeInput:",
-		activeEmployees
+	const clockedInEmployees = useSelector(
+		(store) => store.employees
 	);
 
 	useEffect(() => {
 		if (employee) {
+			console.log("inside if(employee)");
 			setCurrentEmployee({
 				...currentEmployee,
-				id: employee.id,
+				emp_id: employee.emp_id,
 				hours: employee.hours,
 			});
 		}
@@ -46,7 +31,7 @@ export default function EmployeeInput({
 		console.log(`You selected ${selectedEmployeeId}`);
 		setCurrentEmployee({
 			...currentEmployee,
-			id: Number(selectedEmployeeId),
+			emp_id: Number(selectedEmployeeId),
 			selected: true,
 		});
 	};
@@ -56,7 +41,7 @@ export default function EmployeeInput({
 		const currentHours = e.target.value;
 		setCurrentEmployee({
 			...currentEmployee,
-			hours: currentHours,
+			hours: Number(currentHours),
 		});
 	};
 
@@ -67,7 +52,7 @@ export default function EmployeeInput({
 			if (
 				!employeeArray.includes(currentEmployee) &&
 				currentEmployee.hours > 0 &&
-				currentEmployee.id !== 0
+				currentEmployee.emp_id !== 0
 			) {
 				employeeArray.push(currentEmployee);
 				setActiveEmployees(employeeArray);
@@ -105,16 +90,16 @@ export default function EmployeeInput({
 
 	const checkToDisable = (e) => {
 		if (activeEmployees.length > 0) {
-			console.log("inside checkToDisable");
-			console.log("e.id inside checkToDisable", e.id);
+			// console.log("inside checkToDisable");
+			// console.log("e.id inside checkToDisable", e.id);
 			for (let activeE of activeEmployees) {
-				console.log("activeE.id inside forLoop", activeE.id);
+				// console.log("activeE.id inside forLoop", activeE.id);
 				if (
-					e.id === activeE.id &&
+					e.id === activeE.emp_id &&
 					activeE.selected === true
 				) {
-					console.log("e.id:", e.id);
-					console.log("e.selected:", e.selected);
+					// console.log("e.id:", e.id);
+					// console.log("e.selected:", e.selected);
 					return true;
 				}
 			}
@@ -127,7 +112,7 @@ export default function EmployeeInput({
 			<label htmlFor="employee-name">Employee Name: </label>
 			<select
 				name="employee-name"
-				value={currentEmployee.id}
+				value={currentEmployee.emp_id}
 				onChange={addEmployeeId}
 			>
 				<option value={0} disabled>
