@@ -16,47 +16,10 @@ function LandingPage() {
 
 	return (
 		<div className="container">
-			<h2>{heading}</h2>
+			<h2></h2>
 
 			<div className="grid">
-				<div className="grid-col grid-col_8">
-					<h3>What is Fair$hare?</h3>
-
-					<p>
-						Lorem ipsum dolor sit amet consectetur
-						adipisicing elit. Fugiat ad repudiandae rem!
-						Amet magnam laboriosam dolorem, sequi quos,
-						officiis numquam soluta tempora maiores
-						provident, eius ab corporis molestias deleniti
-						odit.
-					</p>
-					<p>
-						Lorem ipsum dolor sit amet consectetur
-						adipisicing elit. Debitis optio sunt, nulla
-						eius perspiciatis blanditiis ab provident,
-						nisi libero, dolorum vitae voluptatem ea
-						maxime tempore! Nobis dolor ipsa incidunt
-						nisi?
-					</p>
-
-					<p>
-						Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Voluptatibus, culpa
-						deleniti! Cupiditate, mollitia quas in nemo
-						illo quod quis est, magni molestias similique
-						laboriosam nobis quo corporis ipsam, ad
-						facere.
-					</p>
-
-					<p>
-						Lorem ipsum dolor sit amet consectetur
-						adipisicing elit. Distinctio repellendus,
-						deleniti autem harum necessitatibus delectus
-						velit labore qui eius quae veritatis iusto
-						iure odit nesciunt sit. Velit ex error
-						doloremque?
-					</p>
-				</div>
+				<div className="grid-col grid-col_8"></div>
 				<div className="grid-col grid-col_4">
 					<LoginForm />
 
