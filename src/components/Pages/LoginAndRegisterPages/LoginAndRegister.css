@@ -1,18 +1,15 @@
 .formPanel {
   box-sizing: border-box;
-  width: 400px;
+  width: 100%;
   max-width: 100%;
   padding: 25px;
-  margin: 0 auto 20px;
-  margin-top: 125px;
   background-color: #efefef;
-  border-radius: 3px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
-input {
-  margin: 5px;
+.login-input {
   margin-bottom: 10px;
+  background-color: #fff;
+  width: 100%;
 }
 
 /*# sourceMappingURL=LoginAndRegister.css.map */

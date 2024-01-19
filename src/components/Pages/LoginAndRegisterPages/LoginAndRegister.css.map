@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["LoginAndRegister.scss"],"names":[],"mappings":"AAAC;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGD;EACC;EACA","file":"LoginAndRegister.css"}
+{"version":3,"sourceRoot":"","sources":["LoginAndRegister.scss","../../../styles/_colors.scss"],"names":[],"mappings":"AAEA;EACC;EACA;EACA;EACA;EACA,kBCDkB;;;ADInB;EACC;EACA,kBCPa;EDQb","file":"LoginAndRegister.css"}

@@ -2,8 +2,9 @@
 Grid
 -------------------------------------------------------------------------------- */
 .grid {
-  margin-top: 5vh;
-  margin-bottom: -40px;
+  margin: 17vh auto;
+  min-height: 66vh;
+  width: 80vw;
   display: flex;
   flex: 0 1 auto;
   /* defaults to 'row' */
@@ -78,6 +79,10 @@ Grid
 .grid-col_12 {
   flex-basis: 100%;
   max-width: 100%;
+}
+
+.landing-background {
+  background-color: #efefef;
 }
 
 .formPanel {
