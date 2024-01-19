@@ -61,6 +61,7 @@ body {
   font-family: "Poppins Light";
 }
 
+/* Heading Sizes */
 h1 {
   font-size: 3.375rem;
   line-height: 3.75rem;
@@ -113,6 +114,7 @@ h4 {
   }
 }
 
+/* Subheading Sizes */
 .subheading1 {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -146,6 +148,42 @@ h4 {
   font-family: "Poppins SemiBold";
 }
 
+/* Text Sizes */
+.largeText {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0;
+  font-family: "Poppins Light";
+}
+@media only screen and (min-width: 1200px) {
+  .largeText {
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+  }
+}
+
+.regularText {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0;
+  font-family: "Poppins Light";
+}
+
+.smallText {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0;
+  font-family: "Poppins Light";
+}
+
+.tinyText {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0;
+  font-family: "Poppins Light";
+}
+
+/* Breakpoints */
 .mobile-and-down {
   display: inherit;
 }
