@@ -13,17 +13,25 @@ export function PrimaryButton({ text, width, func }) {
 	);
 }
 
-export function SecondaryButton({ text, func }) {
+export function SecondaryButton({ text, width, func }) {
 	return (
-		<button className="secondary-btn" onClick={func}>
+		<button
+			className="secondary-btn"
+			onClick={func}
+			style={{ width: width }}
+		>
 			{text}
 		</button>
 	);
 }
 
-export function TertiaryButton({ text, func }) {
+export function TertiaryButton({ text, width, func }) {
 	return (
-		<button className="tertiary-btn" onClick={func}>
+		<button
+			className="tertiary-btn"
+			onClick={func}
+			style={{ width: width }}
+		>
 			{text}
 		</button>
 	);
