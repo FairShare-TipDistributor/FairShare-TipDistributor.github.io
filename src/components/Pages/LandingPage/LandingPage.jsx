@@ -30,12 +30,15 @@ function LandingPage() {
 						<div>
 							<PrimaryButton
 								text="Log In"
+								width="100%"
 								onClick={registration}
 							/>
 						</div>
 					</center>
 					<div>
-						<a href="#">Forgot User ID or Password?</a>
+						<a className="forgot-link" href="#">
+							Forgot User ID or Password?
+						</a>
 					</div>
 
 					<SecondaryButton

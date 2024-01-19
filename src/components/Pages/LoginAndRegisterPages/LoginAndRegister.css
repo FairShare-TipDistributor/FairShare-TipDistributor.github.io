@@ -6,10 +6,25 @@
   background-color: #efefef;
 }
 
-.login-input {
-  margin-bottom: 10px;
+.login-input-box {
+  margin: auto;
   background-color: #fff;
   width: 100%;
+  display: flex;
+  border-radius: 8px;
+  border: 1px solid #000;
+}
+.login-input-box .login-input {
+  border: 0;
+  outline: 0;
+  width: 100%;
+  margin: 3.5%;
+  background-color: #fff;
+}
+.login-input-box .password-show {
+  cursor: pointer;
+  padding: auto;
+  margin: 3.5%;
 }
 
 /*# sourceMappingURL=LoginAndRegister.css.map */

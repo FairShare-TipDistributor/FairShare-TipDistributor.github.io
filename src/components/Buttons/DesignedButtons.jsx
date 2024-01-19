@@ -1,9 +1,13 @@
 ﻿// import "./DesignedButtons.css";
 import "./DesignedButton.css";
 
-export function PrimaryButton({ text, size, func }) {
+export function PrimaryButton({ text, width, func }) {
 	return (
-		<button className="primary-btn" onClick={func}>
+		<button
+			className="primary-btn"
+			onClick={func}
+			style={{ width: width }}
+		>
 			{text}
 		</button>
 	);

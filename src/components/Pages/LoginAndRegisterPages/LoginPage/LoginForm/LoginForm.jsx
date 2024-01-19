@@ -47,16 +47,18 @@ export default function LoginForm() {
 			<div>
 				<label htmlFor="username">User ID</label>
 				<div />
-				<input
-					className="login-input"
-					type="text"
-					name="username"
-					required
-					value={username}
-					onChange={(event) =>
-						setUsername(event.target.value)
-					}
-				/>
+				<div className="login-input-box">
+					<input
+						className="login-input"
+						type="text"
+						name="username"
+						required
+						value={username}
+						onChange={(event) =>
+							setUsername(event.target.value)
+						}
+					/>
+				</div>
 			</div>
 			<div>
 				<label htmlFor="password">
@@ -66,20 +68,26 @@ export default function LoginForm() {
 						one capital letter and one letter.
 					</div>
 				</label>
-				<input
-					className="login-input"
-					type={passwordState}
-					name="password"
-					id="password"
-					required
-					value={password}
-					onChange={(event) =>
-						setPassword(event.target.value)
-					}
-				/>
-				<p id="show" onClick={showPassword}>
-					Show
-				</p>
+				<div className="login-input-box">
+					<input
+						className="login-input"
+						type={passwordState}
+						name="password"
+						id="password"
+						required
+						value={password}
+						onChange={(event) =>
+							setPassword(event.target.value)
+						}
+					/>
+					<p
+						className="password-show"
+						id="show"
+						onClick={showPassword}
+					>
+						Show
+					</p>
+				</div>
 			</div>
 			<div>
 				<input

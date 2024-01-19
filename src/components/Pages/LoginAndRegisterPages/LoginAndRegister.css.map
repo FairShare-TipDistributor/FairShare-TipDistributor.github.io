@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["LoginAndRegister.scss","../../../styles/_colors.scss"],"names":[],"mappings":"AAEA;EACC;EACA;EACA;EACA;EACA,kBCDkB;;;ADInB;EACC;EACA,kBCPa;EDQb","file":"LoginAndRegister.css"}
+{"version":3,"sourceRoot":"","sources":["LoginAndRegister.scss","../../../styles/_colors.scss"],"names":[],"mappings":"AAEA;EACC;EACA;EACA;EACA;EACA,kBCDkB;;;ADInB;EACC;EACA,kBCPa;EDQb;EACA;EACA;EACA;;AAEA;EACC;EACA;EACA;EACA;EACA,kBClBY;;ADqBb;EACC;EACA;EACA","file":"LoginAndRegister.css"}
