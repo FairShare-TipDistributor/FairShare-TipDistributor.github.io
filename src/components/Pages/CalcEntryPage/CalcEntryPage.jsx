@@ -38,46 +38,53 @@ export default function CalcEntryPage() {
 
 	return (
 		<>
-			<form>
-				<h3>Equal Distribution Calculator</h3>
-				<InputTipPool
-					totalTipPool={totalTipPool}
-					setTotalTipPool={setTotalTipPool}
-				/>
-				<h3>Employee Details</h3>
-				{activeEmployees.map((employee) => {
-					return (
+			<main>
+				<form>
+					<h3>Equal Distribution Calculator</h3>
+					<InputTipPool
+						totalTipPool={totalTipPool}
+						setTotalTipPool={setTotalTipPool}
+					/>
+					<h3>Employee Details</h3>
+					{activeEmployees.map((employee) => {
+						return (
+							<EmployeeInput
+								activeEmployees={activeEmployees}
+								setActiveEmployees={
+									setActiveEmployees
+								}
+								employee={employee}
+								key={employee.emp_id}
+							/>
+						);
+					})}
+					<div className="red-border">
 						<EmployeeInput
 							activeEmployees={activeEmployees}
 							setActiveEmployees={setActiveEmployees}
-							employee={employee}
-							key={employee.emp_id}
 						/>
-					);
-				})}
-				<div className="red-border">
-					<EmployeeInput
-						activeEmployees={activeEmployees}
-						setActiveEmployees={setActiveEmployees}
-					/>
-				</div>
+					</div>
 
-				<br />
-			</form>
-			<PrimaryButton text="Calculate" func={calculateTips} />
-			<h4>Results</h4>
-			<h5>Tips per hour worked: </h5>
-			<ul>
-				{calculations.map((tip) => {
-					return (
-						<li key={tip.id}>
-							emp_id: {tip.emp_id}, name: {tip.name},
-							date: {tip.date}, share_total: $
-							{tip.share_total}
-						</li>
-					);
-				})}
-			</ul>
+					<br />
+				</form>
+				<PrimaryButton
+					text="Calculate"
+					func={calculateTips}
+				/>
+				<h4>Results</h4>
+				<h5>Tips per hour worked: </h5>
+				<ul>
+					{calculations.map((tip) => {
+						return (
+							<li key={tip.id}>
+								emp_id: {tip.emp_id}, name: {tip.name}
+								, date: {tip.date}, share_total: $
+								{tip.share_total}
+							</li>
+						);
+					})}
+				</ul>
+			</main>
 		</>
 	);
 }
