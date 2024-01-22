@@ -55,10 +55,17 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #efefef;
   font-size: 1rem;
   line-height: 1.5rem;
   letter-spacing: 0;
   font-family: "Poppins Light";
+}
+@media only screen and (min-width: 1200px) {
+  body {
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+  }
 }
 
 /* Heading Sizes */
@@ -167,6 +174,12 @@ h4 {
   line-height: 1.5rem;
   letter-spacing: 0;
   font-family: "Poppins Light";
+}
+@media only screen and (min-width: 1200px) {
+  .regularText {
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+  }
 }
 
 .smallText {

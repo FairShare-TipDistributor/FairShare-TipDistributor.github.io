@@ -1,10 +1,12 @@
-﻿/* --------------------------------------------------------------------------------
+﻿@use "../../../styles/index.scss" as *;
+
+/* --------------------------------------------------------------------------------
 Grid
 -------------------------------------------------------------------------------- */
 
 .grid {
-	margin-top: 5vh;
-	margin-bottom: -40px;
+	margin: 17vh auto;
+	width: 80vw;
 	display: flex;
 	flex: 0 1 auto;
 	/* defaults to 'row' */
@@ -81,19 +83,30 @@ Grid
 	max-width: 100%;
 }
 
-.formPanel {
-	box-sizing: border-box;
-	width: 400px;
-	max-width: 100%;
-	padding: 25px;
-	margin: 0 auto 20px;
-	margin-top: 125px;
-	background-color: #efefef;
-	border-radius: 3px;
-	box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+.landing-background {
+	background-color: $color-grey-light;
 }
 
-input {
-	margin: 5px;
-	margin-bottom: 10px;
+.formPanel {
+	box-sizing: border-box;
+	padding: 25px;
+	margin: 0 auto;
+	background-color: $color-grey-light;
+	border-radius: 3px;
+}
+
+.link {
+	color: $color-blue-dark;
+	text-decoration: underline;
+	text-decoration-color: currentColor;
+}
+
+.forgot-link {
+	margin-top: 31px;
+	margin-bottom: 31px;
+}
+
+.fair-share-logo {
+	width: 90%;
+	justify-content: center;
 }

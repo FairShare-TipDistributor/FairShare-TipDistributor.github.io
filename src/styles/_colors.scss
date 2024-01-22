@@ -5,9 +5,10 @@ $color-blue-dark: #175a87;
 $color-blue-light: #5cc0df;
 $color-white: #fff;
 $color-grey-light: #efefef;
-$color-black: #1f1f1f;
+$color-black-true: #000;
+$color-black-off: #1f1f1f;
 
 // Context based colors
 $text-color-positive-alert: $color-blue;
 $text-color-error: $color-red;
-$text-color-default: $color-black;
+$text-color-default: $color-black-off;

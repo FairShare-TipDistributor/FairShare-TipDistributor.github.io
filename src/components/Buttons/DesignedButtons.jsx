@@ -1,25 +1,37 @@
 ﻿// import "./DesignedButtons.css";
 import "./DesignedButton.css";
 
-export function PrimaryButton({ text, size, func }) {
+export function PrimaryButton({ text, width, func }) {
 	return (
-		<button className="primary-btn" onClick={func}>
+		<button
+			className="primary-btn"
+			onClick={func}
+			style={{ width: width }}
+		>
 			{text}
 		</button>
 	);
 }
 
-export function SecondaryButton({ text, func }) {
+export function SecondaryButton({ text, width, func }) {
 	return (
-		<button className="secondary-btn" onClick={func}>
+		<button
+			className="secondary-btn"
+			onClick={func}
+			style={{ width: width }}
+		>
 			{text}
 		</button>
 	);
 }
 
-export function TertiaryButton({ text, func }) {
+export function TertiaryButton({ text, width, func }) {
 	return (
-		<button className="tertiary-btn" onClick={func}>
+		<button
+			className="tertiary-btn"
+			onClick={func}
+			style={{ width: width }}
+		>
 			{text}
 		</button>
 	);
