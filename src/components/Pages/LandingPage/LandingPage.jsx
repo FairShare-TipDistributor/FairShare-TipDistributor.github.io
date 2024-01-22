@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+
 import "./LandingPage.css";
 
 // CUSTOM COMPONENTS
@@ -11,40 +11,25 @@ import {
 	TertiaryButton,
 } from "../../Buttons/DesignedButtons";
 
+import FairShareLogo from "../../../Images/FairShareLogo.png";
+
 function LandingPage() {
 	const [heading, setHeading] = useState("Welcome to Fair$hare!");
-	const history = useHistory();
-
-	const registration = (event) => {
-		history.push("/registration");
-	};
 
 	return (
 		<div className="container landing-background">
 			<div className="grid">
-				<div className="grid-col grid-col_6">test 6</div>
+				<div className="grid-col grid-col_6">
+					<center>
+						<img
+							className="fair-share-logo"
+							src={FairShareLogo}
+						/>
+					</center>
+				</div>
+
 				<div className="grid-col grid-col_6">
 					<LoginForm />
-
-					<center>
-						<div>
-							<PrimaryButton
-								text="Log In"
-								width="100%"
-								onClick={registration}
-							/>
-						</div>
-					</center>
-					<div>
-						<a className="forgot-link" href="#">
-							Forgot User ID or Password?
-						</a>
-					</div>
-
-					<SecondaryButton
-						text="New User?"
-						onClick={registration}
-					/>
 				</div>
 			</div>
 		</div>

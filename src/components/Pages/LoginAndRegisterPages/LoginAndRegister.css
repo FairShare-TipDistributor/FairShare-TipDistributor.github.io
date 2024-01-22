@@ -1,9 +1,5 @@
-.formPanel {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 100%;
-  padding: 25px;
-  background-color: #efefef;
+.login-heading-4 {
+  font-family: "Poppins Light";
 }
 
 .login-input-box {
@@ -14,17 +10,40 @@
   border-radius: 8px;
   border: 1px solid #000;
 }
-.login-input-box .login-input {
+.login-input-box #login-input {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0;
+  font-family: "Poppins Light";
+  color: #000;
   border: 0;
   outline: 0;
   width: 100%;
   margin: 3.5%;
   background-color: #fff;
+  color: #000;
+}
+@media only screen and (min-width: 1200px) {
+  .login-input-box #login-input {
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+  }
 }
 .login-input-box .password-show {
   cursor: pointer;
   padding: auto;
   margin: 3.5%;
+}
+
+.remember-user-id {
+  display: flex;
+  align-items: center;
+}
+.remember-user-id input[id=remember-user-id] {
+  color: #000;
+  width: 32px;
+  height: 32px;
+  margin: 16px 15px 16px 0px;
 }
 
 /*# sourceMappingURL=LoginAndRegister.css.map */

@@ -1,11 +1,8 @@
 ﻿@use "../../../styles/index.scss" as *;
+@use "../../../styles/responsive" as *;
 
-.formPanel {
-	box-sizing: border-box;
-	width: 100%;
-	max-width: 100%;
-	padding: 25px;
-	background-color: $color-grey-light;
+.login-heading-4 {
+	font-family: "Poppins Light";
 }
 
 .login-input-box {
@@ -16,17 +13,32 @@
 	border-radius: 8px;
 	border: 1px solid $color-black-true;
 
-	.login-input {
+	#login-input {
+		@include text-body-regular;
+		color: $color-black-true;
 		border: 0;
 		outline: 0;
 		width: 100%;
 		margin: 3.5%;
 		background-color: $color-white;
+		color: #000;
 	}
 
 	.password-show {
 		cursor: pointer;
 		padding: auto;
 		margin: 3.5%;
+	}
+}
+
+.remember-user-id {
+	display: flex;
+	align-items: center;
+
+	input[id="remember-user-id"] {
+		color: $color-black-true;
+		width: 32px;
+		height: 32px;
+		margin: 16px 15px 16px 0px;
 	}
 }

@@ -1,6 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+
+import RegisterForm from "../../RegisterPage/RegisterForm/RegisterForm";
+import {
+	PrimaryButton,
+	SecondaryButton,
+	TertiaryButton,
+} from "../../../../Buttons/DesignedButtons";
 
 export default function LoginForm() {
 	const [username, setUsername] = useState("");
@@ -8,6 +15,11 @@ export default function LoginForm() {
 	const [showHidePassword, setShowHidePassword] = useState(false);
 	const errors = useSelector((store) => store.errors);
 	const dispatch = useDispatch();
+
+	const history = useHistory();
+	const registration = (event) => {
+		history.push("/registration");
+	};
 
 	const login = (event) => {
 		event.preventDefault();
@@ -37,66 +49,81 @@ export default function LoginForm() {
 	}
 
 	return (
-		<form className="formPanel" onSubmit={login}>
-			<h2>Login</h2>
-			{errors.loginMessage && (
-				<h3 className="alert" role="alert">
-					{errors.loginMessage}
-				</h3>
-			)}
-			<div>
-				<label htmlFor="username">User ID</label>
-				<div />
-				<div className="login-input-box">
-					<input
-						className="login-input"
-						type="text"
-						name="username"
-						required
-						value={username}
-						onChange={(event) =>
-							setUsername(event.target.value)
-						}
-					/>
-				</div>
-			</div>
-			<div>
-				<label htmlFor="password">
-					Password
-					<div>
-						Must be at least 8 characters long and include
-						one capital letter and one letter.
+		<>
+			<form className="formPanel" onSubmit={login}>
+				<h4 className="login-heading-4">Log In</h4>
+				{errors.loginMessage && (
+					<h3 className="alert" role="alert">
+						{errors.loginMessage}
+					</h3>
+				)}
+				<div>
+					<label htmlFor="username">User ID</label>
+					<div />
+					<div className="login-input-box">
+						<input
+							id="login-input"
+							type="text"
+							name="username"
+							required
+							value={username}
+							onChange={(event) =>
+								setUsername(event.target.value)
+							}
+						/>
 					</div>
-				</label>
-				<div className="login-input-box">
-					<input
-						className="login-input"
-						type={passwordState}
-						name="password"
-						id="password"
-						required
-						value={password}
-						onChange={(event) =>
-							setPassword(event.target.value)
-						}
-					/>
-					<p
-						className="password-show"
-						id="show"
-						onClick={showPassword}
-					>
-						Show
-					</p>
 				</div>
-			</div>
-			<div>
-				<input
-					className="btn"
-					type="submit"
-					name="submit"
-					value="Log In"
-				/>
-			</div>
-		</form>
+				<div>
+					<label htmlFor="password">
+						Password
+						<div>
+							Must be at least 8 characters long and
+							include one capital letter and one letter.
+						</div>
+					</label>
+					<div className="login-input-box">
+						<input
+							id="login-input"
+							type={passwordState}
+							name="password"
+							required
+							value={password}
+							onChange={(event) =>
+								setPassword(event.target.value)
+							}
+						/>
+						<p
+							className="password-show link"
+							id="show"
+							onClick={showPassword}
+						>
+							Show
+						</p>
+					</div>
+				</div>
+				<div className="remember-user-id">
+					<input
+						type="checkbox"
+						name="remember-user-id"
+						id="remember-user-id"
+					/>
+					<label htmlFor="remember-user-id">
+						Remember User ID
+					</label>
+				</div>
+				<div>
+					<PrimaryButton text="Log In" width="100%" />
+				</div>
+				<div className="forgot-link">
+					<a className="link" href="#">
+						Forgot User ID or Password?
+					</a>
+				</div>
+			</form>
+			<SecondaryButton
+				text="New User?"
+				onClick={registration}
+			/>
+		</>
 	);
 }

@@ -109,6 +109,11 @@
 	line-height: rem(24px);
 	letter-spacing: 0;
 	font-family: "Poppins Light";
+
+	@include for-desktop-and-up {
+		font-size: rem(20px);
+		line-height: rem(26px);
+	}
 }
 
 @mixin text-body-small {
