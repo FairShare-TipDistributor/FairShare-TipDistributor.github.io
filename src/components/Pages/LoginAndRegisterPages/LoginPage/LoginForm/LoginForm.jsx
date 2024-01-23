@@ -49,8 +49,8 @@ export default function LoginForm() {
 	}
 
 	return (
-		<>
-			<form className="formPanel" onSubmit={login}>
+		<div className="formPanel">
+			<form onSubmit={login}>
 				<h4 className="login-heading-4">Log In</h4>
 				{errors.loginMessage && (
 					<h3 className="alert" role="alert">
@@ -120,10 +120,12 @@ export default function LoginForm() {
 					</a>
 				</div>
 			</form>
-			<SecondaryButton
-				text="New User?"
-				onClick={registration}
-			/>
-		</>
+			<div>
+				<SecondaryButton
+					text="New User?"
+					onClick={registration}
+				/>
+			</div>
+		</div>
 	);
 }

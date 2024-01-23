@@ -46,4 +46,23 @@
   margin: 16px 15px 16px 0px;
 }
 
+.formPanel {
+  box-sizing: border-box;
+  padding: 25px;
+  margin: 0 auto;
+  background-color: #efefef;
+  border-radius: 3px;
+}
+
+.link {
+  color: #175a87;
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+}
+
+.forgot-link {
+  margin-top: 28px;
+  margin-bottom: 28px;
+}
+
 /*# sourceMappingURL=LoginAndRegister.css.map */

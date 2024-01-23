@@ -42,3 +42,23 @@
 		margin: 16px 15px 16px 0px;
 	}
 }
+
+.formPanel {
+	box-sizing: border-box;
+	padding: 25px;
+	margin: 0 auto;
+	background-color: $color-grey-light;
+	border-radius: 3px;
+}
+
+.link {
+	color: $color-blue-dark;
+	text-decoration: underline;
+	text-decoration-color: currentColor;
+}
+
+.forgot-link {
+	$forgot-margin: 28px;
+	margin-top: $forgot-margin;
+	margin-bottom: $forgot-margin;
+}

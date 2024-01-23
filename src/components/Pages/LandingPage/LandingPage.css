@@ -84,25 +84,6 @@ Grid
   background-color: #efefef;
 }
 
-.formPanel {
-  box-sizing: border-box;
-  padding: 25px;
-  margin: 0 auto;
-  background-color: #efefef;
-  border-radius: 3px;
-}
-
-.link {
-  color: #175a87;
-  text-decoration: underline;
-  text-decoration-color: currentColor;
-}
-
-.forgot-link {
-  margin-top: 31px;
-  margin-bottom: 31px;
-}
-
 .fair-share-logo {
   width: 90%;
   justify-content: center;
