@@ -49,6 +49,11 @@ Grid
   flex-basis: 50%;
   max-width: 50%;
 }
+.grid-col_6 .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .grid-col_7 {
   flex-basis: 58.33333333%;
@@ -80,13 +85,12 @@ Grid
   max-width: 100%;
 }
 
-.landing-background {
-  background-color: #efefef;
+.fair-share-logo {
+  width: 100%;
 }
 
-.fair-share-logo {
-  width: 90%;
-  justify-content: center;
+.landing-background {
+  background-color: #efefef;
 }
 
 /*# sourceMappingURL=LandingPage.css.map */

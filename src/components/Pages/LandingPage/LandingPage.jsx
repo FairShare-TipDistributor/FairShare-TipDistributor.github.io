@@ -20,12 +20,12 @@ function LandingPage() {
 		<div className="container landing-background">
 			<div className="grid">
 				<div className="grid-col grid-col_6">
-					<center>
+					<div className="center">
 						<img
 							className="fair-share-logo"
 							src={FairShareLogo}
 						/>
-					</center>
+					</div>
 				</div>
 
 				<div className="grid-col grid-col_6">

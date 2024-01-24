@@ -51,6 +51,12 @@ Grid
 .grid-col_6 {
 	flex-basis: 50%;
 	max-width: 50%;
+
+	.center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 }
 
 .grid-col_7 {
@@ -83,11 +89,10 @@ Grid
 	max-width: 100%;
 }
 
-.landing-background {
-	background-color: $color-grey-light;
+.fair-share-logo {
+	width: 100%;
 }
 
-.fair-share-logo {
-	width: 90%;
-	justify-content: center;
+.landing-background {
+	background-color: $color-grey-light;
 }

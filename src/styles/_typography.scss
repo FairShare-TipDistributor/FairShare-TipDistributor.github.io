@@ -65,7 +65,8 @@
 	font-size: rem(16px);
 	line-height: rem(24px);
 	letter-spacing: -0.012em;
-	font-family: "Poppins SemiBold";
+	font-family: "Poppins";
+	font-weight: 600;
 
 	@include for-desktop-and-up {
 		font-size: rem(24px);
@@ -77,7 +78,8 @@
 	font-size: rem(16px);
 	line-height: rem(24px);
 	letter-spacing: -0.015em;
-	font-family: "Poppins SemiBold";
+	font-family: "Poppins";
+	font-weight: 600;
 
 	@include for-desktop-and-up {
 		font-size: rem(20px);
@@ -89,14 +91,16 @@
 	font-size: rem(16px);
 	line-height: rem(24px);
 	letter-spacing: -0.012em;
-	font-family: "Poppins SemiBold";
+	font-family: "Poppins";
+	font-weight: 600;
 }
 
 @mixin text-body-large {
 	font-size: rem(16px);
 	line-height: rem(24px);
 	letter-spacing: 0;
-	font-family: "Poppins Light";
+	font-family: "Poppins";
+	font-weight: 300;
 
 	@include for-desktop-and-up {
 		font-size: rem(18px);
@@ -108,7 +112,8 @@
 	font-size: rem(16px);
 	line-height: rem(24px);
 	letter-spacing: 0;
-	font-family: "Poppins Light";
+	font-family: "Poppins";
+	font-weight: 300;
 
 	@include for-desktop-and-up {
 		font-size: rem(20px);
@@ -120,21 +125,24 @@
 	font-size: rem(14px);
 	line-height: rem(20px);
 	letter-spacing: 0;
-	font-family: "Poppins Light";
+	font-family: "Poppins";
+	font-weight: 300;
 }
 
 @mixin text-body-tiny {
 	font-size: rem(12px);
 	line-height: rem(16px);
 	letter-spacing: 0;
-	font-family: "Poppins Light";
+	font-family: "Poppins";
+	font-weight: 300;
 }
 
 @mixin text-button-regular {
 	font-size: rem(14px);
 	line-height: rem(20px);
 	letter-spacing: 0;
-	font-family: "Poppins SemiBold";
+	font-family: "Poppins";
+	font-weight: 600;
 
 	@include for-desktop-and-up {
 		font-size: rem(17px);
@@ -146,5 +154,6 @@
 	font-size: rem(14px);
 	line-height: rem(20px);
 	letter-spacing: 0;
-	font-family: "Poppins SemiBold";
+	font-family: "Poppins";
+	font-weight: 600;
 }

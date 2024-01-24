@@ -1,64 +1,66 @@
 ﻿@use "../../../styles/index.scss" as *;
 @use "../../../styles/responsive" as *;
 
-.login-heading-4 {
-	font-family: "Poppins Light";
-}
-
-.login-input-box {
-	margin: auto;
-	background-color: $color-white;
-	width: 100%;
-	display: flex;
-	border-radius: 8px;
-	border: 1px solid $color-black-true;
-
-	#login-input {
-		@include text-body-regular;
-		color: $color-black-true;
-		border: 0;
-		outline: 0;
-		width: 100%;
-		margin: 3.5%;
-		background-color: $color-white;
-		color: #000;
-	}
-
-	.password-show {
-		cursor: pointer;
-		padding: auto;
-		margin: 3.5%;
-	}
-}
-
-.remember-user-id {
-	display: flex;
-	align-items: center;
-
-	input[id="remember-user-id"] {
-		color: $color-black-true;
-		width: 32px;
-		height: 32px;
-		margin: 16px 15px 16px 0px;
-	}
-}
-
 .formPanel {
 	box-sizing: border-box;
 	padding: 25px;
 	margin: 0 auto;
 	background-color: $color-grey-light;
 	border-radius: 3px;
-}
 
-.link {
-	color: $color-blue-dark;
-	text-decoration: underline;
-	text-decoration-color: currentColor;
-}
+	.login-heading-4 {
+		font-family: "Poppins";
+		font-weight: 300;
+		margin-bottom: 8px;
+	}
 
-.forgot-link {
-	$forgot-margin: 28px;
-	margin-top: $forgot-margin;
-	margin-bottom: $forgot-margin;
+	.login-input-box {
+		margin: 8px auto;
+		background-color: $color-white;
+		width: 100%;
+		display: flex;
+		border-radius: 8px;
+		border: 1px solid $color-black-true;
+
+		#login-input {
+			@include text-body-regular;
+			color: $color-black-true;
+			border: 0;
+			outline: 0;
+			width: 100%;
+			margin: 3.5%;
+			background-color: $color-white;
+			color: #000;
+		}
+
+		.password-show {
+			cursor: pointer;
+			padding: auto;
+			margin: 3.5%;
+		}
+	}
+
+	.link {
+		color: $color-blue-dark;
+		text-decoration: underline;
+		text-decoration-color: currentColor;
+	}
+
+	.forgot-link {
+		$forgot-margin: 28px;
+		margin-top: $forgot-margin;
+		margin-bottom: $forgot-margin;
+	}
+
+	.remember-user-id {
+		display: flex;
+		align-items: center;
+
+		input[id="remember-user-id"] {
+			color: $color-black-true;
+			width: 32px;
+			height: 32px;
+			margin: 16px 15px 16px 0px;
+		}
+	}
 }

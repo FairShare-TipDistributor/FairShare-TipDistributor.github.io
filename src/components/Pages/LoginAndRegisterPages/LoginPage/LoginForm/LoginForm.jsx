@@ -58,8 +58,13 @@ export default function LoginForm() {
 					</h3>
 				)}
 				<div>
-					<label htmlFor="username">User ID</label>
-					<div />
+					<label
+						htmlFor="username"
+						style={{ fontWeight: 700 }}
+					>
+						User ID
+					</label>
+					{/* <div /> */}
 					<div className="login-input-box">
 						<input
 							id="login-input"
@@ -75,11 +80,11 @@ export default function LoginForm() {
 				</div>
 				<div>
 					<label htmlFor="password">
-						Password
-						<div>
+						<p style={{ fontWeight: 700 }}>Password</p>
+						<p>
 							Must be at least 8 characters long and
 							include one capital letter and one letter.
-						</div>
+						</p>
 					</label>
 					<div className="login-input-box">
 						<input
