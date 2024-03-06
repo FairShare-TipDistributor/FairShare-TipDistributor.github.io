@@ -11,6 +11,7 @@ const warnings = require("../constants/warnings");
 
     You can see this string that gets passed back and forth in the
     `application` ->  `storage` -> `cookies` section of the chrome debugger
+	
 */
 
 const serverSessionSecret = () => {
