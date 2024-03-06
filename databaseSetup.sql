@@ -1,4 +1,5 @@
-﻿CREATE TABLE "employees" (
+﻿
+CREATE TABLE "employees" (
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR(100)
 );
@@ -7,7 +8,8 @@ CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "emp_id" INT REFERENCES "employees"("id"),
     "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
+    "password" VARCHAR (1000) NOT NULL,
+    "email" VARCHAR (255);
 );
 
 CREATE TABLE "date" (
@@ -29,9 +31,7 @@ CREATE TABLE "tips" (
     "share_cc" NUMERIC
 );
 
-
--- test data
-
+------ Test Data -----
 INSERT INTO "date" ("date", "tip_total", "cash_tips", "cc_tips") 
 VALUES ('1999-01-01', 400, 200, 200);
 
@@ -41,14 +41,9 @@ VALUES ('Dave'), ('Joshua'), ('Mike'), ('Brendan');
 INSERT INTO "tips" ("date_id", "emp_id", "share_total", "share_cash", "share_cc")
 VALUES (1, 1, 100, 50, 50), (1, 2, 100, 50, 50), (1, 3, 100, 50, 50), (1, 4, 100, 50, 50); 
 
-SELECT "name", "date", "share_total", "share_cash", "share_cc"
-FROM "tips" 
-JOIN "date" on "tips"."date_id" = "date"."id"
-JOIN "employees" ON "tips"."emp_id" = "employees"."id";
 
-SELECT "name", "date", "share_total", "share_cash", "share_cc"
-FROM "tips" 
-JOIN "date" on "tips"."date_id" = "date"."id"
-JOIN "employees" ON "tips"."emp_id" = "employees"."id"
-WHERE "employees"."id" = 1;
 
+
+---- NATE ADDED BELLOW ----
+-- ALTER TABLE "user"
+-- ADD COLUMN "email" varchar(255);
