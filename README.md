@@ -5,7 +5,10 @@ This is a Full-stack React web app that allows service industry employees to cal
 
 ## Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
+
+<img src="public/images/screenshots/screenshot1.webp" style="width: 100%;">  
+
 
 ## Available Scripts
 
