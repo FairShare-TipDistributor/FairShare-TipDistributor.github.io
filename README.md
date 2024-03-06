@@ -1,4 +1,4 @@
-#FairShare - Tip Distributor Web App.
+# FairShare - Tip Distributor Web App.
 This is a Full-stack React web app that allows service industry employees to calculate tip allocations.   
 
 
