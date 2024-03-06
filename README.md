@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+#FairShare - Tip Distributor Web App.
+This is a Full-stack React web app that allows service industry employees to calculate tip allocations.   
+
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
