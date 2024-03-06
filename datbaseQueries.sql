@@ -17,7 +17,9 @@ SELECT * FROM "employees";
 
 SELECT * FROM "tips";
 
+SELECT * FROM "user";
 
+SELECT * FROM "date";
 
 ---- DELETE TABLES ----
 -- DROP TABLE "employees";
