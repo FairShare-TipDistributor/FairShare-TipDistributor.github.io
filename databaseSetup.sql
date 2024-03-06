@@ -9,7 +9,7 @@ CREATE TABLE "user" (
     "emp_id" INT REFERENCES "employees"("id"),
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL,
-    "email" VARCHAR (255);
+    "email" VARCHAR (255)
 );
 
 CREATE TABLE "date" (
