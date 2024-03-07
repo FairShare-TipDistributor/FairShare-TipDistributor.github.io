@@ -10,6 +10,8 @@ function RegisterPage() {
 
 	return (
 		<div>
+			
+			{/* This is the actual Registration form is added */}
 			<RegisterForm />
 
 			<center>
