@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import "./LandingPage.css";
 
 // CUSTOM COMPONENTS
+// This page is the Left side of the entire Landing/Home Page
+
 import RegisterForm from "../LoginAndRegisterPages/RegisterPage/RegisterForm/RegisterForm";
 import LoginForm from "../LoginAndRegisterPages/LoginPage/LoginForm/LoginForm";
 import {

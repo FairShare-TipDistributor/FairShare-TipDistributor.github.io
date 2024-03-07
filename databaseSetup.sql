@@ -9,7 +9,7 @@ CREATE TABLE "user" (
     "emp_id" INT REFERENCES "employees"("id"),
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL,
-    "email" VARCHAR (255);
+    "email" VARCHAR (255)
 );
 
 CREATE TABLE "date" (
@@ -41,6 +41,11 @@ VALUES ('Dave'), ('Joshua'), ('Mike'), ('Brendan');
 INSERT INTO "tips" ("date_id", "emp_id", "share_total", "share_cash", "share_cc")
 VALUES (1, 1, 100, 50, 50), (1, 2, 100, 50, 50), (1, 3, 100, 50, 50), (1, 4, 100, 50, 50); 
 
+-- Test admin and employee users --
+INSERT INTO "user" ("emp_id", "username", "password", "email")
+VALUES
+	(1, 'admin1', '$2a$10$fUaSWm5qYHS/Tc3.JDKr9u2exymQW1iPtPtEKMRoYyHpWeCcqQAai','admin1@gmail.com' ),
+	(2, 'employee1', '$2a$10$5vqZChZ3rKkBdHC7ib8KWuwLDakE57ZVUYGSvZpj2d62CHJxD/R0S', 'employee1@gmail.com');
 
 
 

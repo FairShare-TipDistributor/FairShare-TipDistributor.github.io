@@ -17,12 +17,13 @@ SELECT * FROM "employees";
 
 SELECT * FROM "tips";
 
+SELECT * FROM "user";
 
+SELECT * FROM "date";
 
----- DELETE TABLES ----
--- DROP TABLE "employees";
--- DROP TABLE "tips";
+---- DELETE TABLES (in this order) ----
 -- DROP TABLE "user";
 -- DROP TABLE "tips";
 -- DROP TABLE "date";
+-- DROP TABLE "employees";
 ---- DELETE TABLES ----

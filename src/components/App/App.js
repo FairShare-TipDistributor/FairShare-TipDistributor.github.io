@@ -9,6 +9,12 @@ import {
 	Switch,
 } from "react-router-dom";
 
+// NOTE: Importing Custom Button CSS here in App.jsx so the buttons classes can be used anywhere in the app.
+	// They are also being imported in the custom "DesignedButtons".jsx file, 
+		// but those custom styled react elements/buttons don't work. I think it's a parent/child props issue?
+		// Trying to import this custom designed buttons css at other places in the app has file path issues.
+import "../Buttons/DesignedButton.css";
+
 import { useDispatch, useSelector } from "react-redux";
 
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";

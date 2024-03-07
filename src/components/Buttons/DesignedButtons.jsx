@@ -1,4 +1,8 @@
 ﻿// import "./DesignedButtons.css";
+
+
+
+// NOTE: These buttons must be inside a form element to work. IDK why..
 import "./DesignedButton.css";
 
 export function PrimaryButton({ text, width, func }) {
