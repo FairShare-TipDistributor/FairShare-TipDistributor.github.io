@@ -10,7 +10,26 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 <img src="public/images/screenshots/screenshot1.webp" style="width: 100%;">  
 
 
+
+
+
 ## Available Scripts
+
+After cloning repo instal dependencies by running: 
+
+### `npm install`
+
+
+Create a `.env` file at the root of the project and paste this line into the file:
+  ```
+  SERVER_SESSION_SECRET=superDuperSecret
+  ```
+  While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string to keep your application secure.  
+  You can generate a random string here: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). 
+  If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
+
+
+
 
 In the project directory, you can run:
 
