@@ -4,6 +4,12 @@ import { useHistory } from "react-router-dom";
 
 import "../LoginAndRegister.css";
 
+// This page is basically the right side of the landing page.
+// TECHNICALLY this page is JUST the login form, and the "New User" button.
+// And also has the "Register" button that WORKS.
+
+	// it is not yet clear if this should be used for the landing page login or not yet.
+
 function LoginPage() {
 	const history = useHistory();
 
@@ -11,7 +17,7 @@ function LoginPage() {
 		<div>
 			<LoginForm />
 
-			<center>
+			{/* <center>
 				<button
 					type="button"
 					className="btn btn_asLink"
@@ -21,7 +27,7 @@ function LoginPage() {
 				>
 					Register
 				</button>
-			</center>
+			</center> */}
 		</div>
 	);
 }
