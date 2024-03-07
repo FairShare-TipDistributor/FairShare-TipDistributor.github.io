@@ -125,11 +125,18 @@ export default function LoginForm() {
 					</a>
 				</div>
 			</form>
+			
 			<div>
-				<SecondaryButton
-					text="New User?"
-					onClick={registration}
-				/>
+
+
+				<form onSubmit={registration}>
+					{/* These designed button need to be in a form to work */}
+					<SecondaryButton
+						text="New User?"
+						width="100%"
+						onClick={registration}
+					/>
+				</form>
 			</div>
 		</div>
 	);
