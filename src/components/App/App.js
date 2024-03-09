@@ -26,6 +26,7 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import CalcEntryPage from "../Pages/CalcEntryPage/CalcEntryPage";
 
 import EmployeesPage from "../Pages/EmployeesPage/EmployeesPage";
+import ShiftsPage from "../Pages/ShiftsPage/ShiftsPage";
 
 function App() {
 	const dispatch = useDispatch();
@@ -91,7 +92,12 @@ function App() {
 						exact path="/Employees">
 							<EmployeesPage />
 					</ProtectedRoute>
-					
+
+					<ProtectedRoute
+						exact path="/Shifts">
+							<ShiftsPage />
+					</ProtectedRoute>
+
 					<Route exact path="/calc">
 						<CalcEntryPage />
 					</Route>
