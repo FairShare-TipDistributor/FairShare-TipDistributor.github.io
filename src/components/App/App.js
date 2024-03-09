@@ -91,6 +91,7 @@ function App() {
 						exact path="/Employees">
 							<EmployeesPage />
 					</ProtectedRoute>
+					
 					<Route exact path="/calc">
 						<CalcEntryPage />
 					</Route>
