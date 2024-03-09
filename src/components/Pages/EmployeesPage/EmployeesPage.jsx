@@ -1,8 +1,9 @@
 // import React, { useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-
 import { useEffect } from 'react';
 
+// ------ MUI ELEMENTS ------ //
+import { Box, Button, Grid, TextField, Typography } from '@mui/material'; 
 
 function EmployeesPage() {
    
@@ -25,19 +26,42 @@ useEffect(() => {
     
 
   return (
-    <div>
-        <h3>Employees Management Page</h3>
-        <ul>
-            {employeesStore && employeesStore.map((employee, index) => {
-                console.log(`EmployeeIndex_${index}_${employee.id}`);
-                console.log('tacoItem', employee);
-                return (
-                    <li key={index}># {employee.id}:  Name: {employee.name}</li>
-                )
-            })}
-        </ul>
+    <>
+    <h3>Employees Management Page</h3>
+    <Box sx={{ p: 2, border: '1px dashed grey' }} className="employeesBox"
+        height={200}
+        width='100%'
+        my={4}
+        display="flex"
+        alignItems="center"
+        gap={4} 
+        component="section" >
 
-    </div>
+        <div>
+            <Grid container className="GridContainerMapper" 
+                direction="row"
+                //  justifyContent="space-evenly"
+                justifyContent="space-evenly"
+                alignItems="flex-start"
+                spacing={3}
+                rowSpacing={4}
+            ></Grid>
+            <ul>
+                {employeesStore && employeesStore.map((employee, index) => {
+                    console.log(`EmployeeIndex_${index}_${employee.id}`);
+                    console.log('tacoItem', employee);
+                    return (
+                        // <li key={index}># {employee.id}:  Name: {employee.name}</li>
+
+                        <Grid item key={index}> 
+                             <Typography># {employee.id}: {employee.name} </Typography>
+                        </Grid>
+                        )
+                    })}
+            </ul>
+        </div>  
+    </Box>
+    </>
   );
 }
 
