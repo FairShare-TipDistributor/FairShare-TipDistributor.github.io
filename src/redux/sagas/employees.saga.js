@@ -5,9 +5,9 @@ function* getEmployees() {
 	try {
 		const employees = yield axios.get("/employees");
 		yield put({ type: "SET_EMPLOYEES", payload: employees.data });
-		console.log(employees.data);
+		// console.log('employees.data (SAGA)', employees.data);
 	} catch (error) {
-		console.log(`error in getTips ${error}`);
+		console.log(`error in getTips (SAGA) ${error}`);
 		alert("Something went wrong");
 	}
 }

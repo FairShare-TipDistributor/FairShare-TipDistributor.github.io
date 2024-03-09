@@ -19,11 +19,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
-import CalcEntryPage from "../Pages/CalcEntryPage/CalcEntryPage";
 import LandingPage from "../Pages/LandingPage/LandingPage";
-import RegisterPage from "../Pages/LoginAndRegisterPages/RegisterPage/RegisterPage";
 import LoginPage from "../Pages/LoginAndRegisterPages/LoginPage/LoginPage";
+import RegisterPage from "../Pages/LoginAndRegisterPages/RegisterPage/RegisterPage";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import CalcEntryPage from "../Pages/CalcEntryPage/CalcEntryPage";
+
+import EmployeesPage from "../Pages/EmployeesPage/EmployeesPage";
+import ShiftsPage from "../Pages/ShiftsPage/ShiftsPage";
 
 function App() {
 	const dispatch = useDispatch();
@@ -84,6 +87,16 @@ function App() {
 							<LandingPage />
 						)}
 					</Route>
+					
+					<ProtectedRoute
+						exact path="/Employees">
+							<EmployeesPage />
+					</ProtectedRoute>
+
+					<ProtectedRoute
+						exact path="/Shifts">
+							<ShiftsPage />
+					</ProtectedRoute>
 
 					<Route exact path="/calc">
 						<CalcEntryPage />
