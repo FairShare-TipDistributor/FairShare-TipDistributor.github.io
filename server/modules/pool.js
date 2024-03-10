@@ -6,6 +6,9 @@ let pool;
 // to set the connection info: web address, username/password, db name
 // eg:
 //  DATABASE_URL=postgresql://jDoe354:secretPw123@some.db.com/prime_app
+
+
+// ---- If DATABASE_URL exists connect to that. (remote/deployed database) ---- //
 if (process.env.DATABASE_URL) { // HEROKU URL
 	try {
 		pool = new pg.Pool({
@@ -21,10 +24,9 @@ if (process.env.DATABASE_URL) { // HEROKU URL
 		console.log('ERROR in pg pool. Cannot connect to remote database. Error:', error);
 	}
 }
-// When we're running this app on our own computer
-// we'll connect to the postgres database that is
-// also running on our computer (localhost)
-else {
+
+// ---- ELSE, just connect to the localhost on your machine ---- //
+else { // LOCALHOST
 	try {
 		pool = new pg.Pool({
 			host: "localhost",
