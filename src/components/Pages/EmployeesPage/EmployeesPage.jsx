@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import { useEffect } from 'react';
 
 // ------ MUI ELEMENTS ------ //
-import { Box, Button, Grid, TextField, Typography } from '@mui/material'; 
+import { Box, TextField } from '@mui/material'; 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -47,7 +47,7 @@ useEffect(() => {
   return (
     <>
     <div className="mainDiv" >
-      
+
       <Box sx={{ p: 2, border: '1px dashed grey' }} className="employeesBox"
         height='100%' //{200}
         width='100%'
@@ -59,6 +59,12 @@ useEffect(() => {
         <div>
 
         <h3 style={{ margin: '10px 10px' }}>Employees Management Page</h3>
+
+        <TextField id="outlined-basic" label="Search Employee" variant="outlined"  style={{ width: '100%' }}/>
+        {/* <TextField id="filled-basic" label="Filled" variant="filled" />
+        <TextField id="standard-basic" label="Standard" variant="standard" /> */}
+
+        <textBox></textBox>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
