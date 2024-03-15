@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
     const queryText = `
-    SELECT "name", "id" 
+    SELECT "first_name", "last_name", "id", "email"
     FROM employees; 
     `;
     pool.query(queryText).then(result => {

@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 
 // ------ MUI ELEMENTS ------ //
 import { Box, Button, Grid, TextField, Typography } from '@mui/material'; 
+
+// import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -24,26 +26,7 @@ const rows = [
   createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
-function EmployeesPage() {
-   
-      const store = useSelector((store) => store);
-      const employeesStore = useSelector(store => store.employees);
-    console.log('employeesStore (empPage)', employeesStore);
-    // Using hooks we're creating local state for a "heading" variable with
-//   const [heading, setHeading] = useState('Employees Page (State heading)');
-const dispatch = useDispatch();
-
-
-useEffect(() => {
-    dispatch({ type: 'FETCH_EMPLOYEES' });
-  }, []);
-
-  
-//   const emplyeesTestArray = [[1,'dave'], [3,'tom'], [14,'bob'], [2,'dale']]; 
-  // swap 'employeesStore' with 'emplyeesTestArray' to test basic .mp functionality. 
-    // must also change employee.id & employee.name to employee[0] (array index's)
-    
-
+export default function BasicTable() {
   return (
     <>
     <div className="mainDiv" >
@@ -58,30 +41,31 @@ useEffect(() => {
         component="section" >
         <div>
 
-        <h3 style={{ margin: '10px 10px' }}>Employees Management Page</h3>
+        <h3>Employees Management Page</h3>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell style={{  fontWeight: 'bold'}} align="left">First Name</TableCell>
-                <TableCell style={{  fontWeight: 'bold'}} align="left">Last Name</TableCell>
-                <TableCell style={{  fontWeight: 'bold'}} align="left">Employee ID</TableCell>
-                <TableCell style={{  fontWeight: 'bold'}} align="left">Email</TableCell>
-                {/* <TableCell align="right">Permission Lvl</TableCell> */}
+                <TableCell>Dessert (100g serving)</TableCell>
+                <TableCell align="right">Calories</TableCell>
+                <TableCell align="right">Fat&nbsp;(g)</TableCell>
+                <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                <TableCell align="right">Protein&nbsp;(g)</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-
-              {employeesStore && employeesStore.map((employee) => (
+              {rows.map((row) => (
                 <TableRow
-                  key={employee.name}
+                  key={row.name}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                  <TableCell component="th" scope="row">{employee.first_name}</TableCell>
-                  <TableCell align="left">{employee.last_name}</TableCell>
-                  <TableCell align="left">{1234}</TableCell>
-                  <TableCell align="left">{employee.email}</TableCell>
-
+                  <TableCell component="th" scope="row">
+                    {row.name}
+                  </TableCell>
+                  <TableCell align="right">{row.calories}</TableCell>
+                  <TableCell align="right">{row.fat}</TableCell>
+                  <TableCell align="right">{row.carbs}</TableCell>
+                  <TableCell align="right">{row.protein}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -94,4 +78,4 @@ useEffect(() => {
   );
 }
 
-export default EmployeesPage;
+// export default EmployeesPage;
