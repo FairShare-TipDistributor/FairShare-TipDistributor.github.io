@@ -12,6 +12,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import SearchIcon from '@mui/icons-material/Search';
+import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
+
 
 function EmployeesPage() {
    
@@ -45,6 +47,7 @@ useEffect(() => {
         width='100%'
         my={4}
         display="flex"
+        flexDirection="column"
         alignItems="center"
         gap={4} 
         component="section" >
@@ -67,7 +70,7 @@ useEffect(() => {
                 <TableCell style={{  fontWeight: 'bold'}} align="left">Last Name</TableCell>
                 <TableCell style={{  fontWeight: 'bold'}} align="left">Employee ID</TableCell>
                 <TableCell style={{  fontWeight: 'bold'}} align="left">Email</TableCell>
-                {/* <TableCell align="right">Permission Lvl</TableCell> */}
+                <TableCell style={{  fontWeight: 'bold'}} align="right">Edit</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -81,13 +84,14 @@ useEffect(() => {
                   <TableCell align="left">{employee.last_name}</TableCell>
                   <TableCell align="left">{1234}</TableCell>
                   <TableCell align="left">{employee.email}</TableCell>
-
+                  <TableCell align="left"> <Button variant="contained" type='submit' >Edit</Button></TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
         </div>
+        <Button variant="contained" type='submit' >Add Employee &nbsp;<PersonAddAlt1Icon /></Button>
       </Box>
       </div>
     </>
