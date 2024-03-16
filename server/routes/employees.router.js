@@ -5,13 +5,19 @@ const router = express.Router();
 /**
  * GET route 
  */
+// SELECT and SEARCH "first_name", "last_name", "id", "email"
+// FROM employees; 
 router.get('/', (req, res) => {
     const queryText = `
-    SELECT "name", "id" 
-    FROM employees; 
+    SELECT * FROM "employees"
+    WHERE "first_name" LIKE '%%'
+    OR "last_name" LIKE '%%'
+    OR "email" LIKE '%%'
+    ;
     `;
     pool.query(queryText).then(result => {
       res.send(result.rows);
+      console.log(result);
     }).catch(error => {
       console.log(`Error in GET tipsRouter ${error}`);
       res.sendStatus(500);

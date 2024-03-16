@@ -44,11 +44,7 @@ VALUES (1, 1, 100, 50, 50), (1, 2, 100, 50, 50), (1, 3, 100, 50, 50), (1, 4, 100
 -- Test admin and employee users --
 INSERT INTO "user" ("emp_id", "username", "password", "email")
 VALUES
-	(1, 'admin1', '$2a$10$fUaSWm5qYHS/Tc3.JDKr9u2exymQW1iPtPtEKMRoYyHpWeCcqQAai','admin1@gmail.com' ),
-	(2, 'employee1', '$2a$10$5vqZChZ3rKkBdHC7ib8KWuwLDakE57ZVUYGSvZpj2d62CHJxD/R0S', 'employee1@gmail.com');
+	(1, 'admin1', '$2a$10$f4pIRStoYUPa7..hc1QEnu0grt/GX5AEMZbf.njAHx6zeKDsNvITq','admin1@gmail.com' ),  -- password is admin1
+	(2, 'employee1', '$2a$10$.bWzkvOOeikAUZPFuWL25u0pspjzVuApHgVJ3Fb.BezjbCqdrX.lO', 'employee1@gmail.com'),  -- password is employee1
+	(3, 'user1', '$2a$10$P/D2xUNJdR6WIZ1antQBl.YWTipLqoLXuhNBCBWHdnH5QxwYTTjK', 'user1@gmail.com');  -- password is user1
 
-
-
----- NATE ADDED BELLOW ----
--- ALTER TABLE "user"
--- ADD COLUMN "email" varchar(255);
