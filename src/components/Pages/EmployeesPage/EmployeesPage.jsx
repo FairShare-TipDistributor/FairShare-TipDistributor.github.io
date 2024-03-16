@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import { useEffect } from 'react';
 
 // ------ MUI ELEMENTS ------ //
-import { Box, TextField } from '@mui/material'; 
+import { Box, Button, TextField } from '@mui/material'; 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -11,10 +11,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
+import SearchIcon from '@mui/icons-material/Search';
 
 function EmployeesPage() {
    
@@ -25,6 +22,9 @@ function EmployeesPage() {
 //   const [heading, setHeading] = useState('Employees Page (State heading)');
 const dispatch = useDispatch();
 
+function handleSubmit(event){
+  console.log('event', event);
+};
 
 useEffect(() => {
     dispatch({ type: 'FETCH_EMPLOYEES' });
@@ -51,8 +51,10 @@ useEffect(() => {
         <div>
 
         <h3 style={{ margin: '10px 10px' }}>Employees Management Page</h3>
-
-        <TextField id="outlined-basic" label="Search Employee" variant="outlined"  style={{ width: '100%' }}/>
+        <form >
+          <TextField id="outlined-basic" label="Search Employee" variant="outlined"  style={{ width: '75%' }}/>
+          <Button variant="contained" type='submit' >Search &nbsp;<SearchIcon /></Button>
+        </form>
         {/* <TextField id="filled-basic" label="Filled" variant="filled" />
         <TextField id="standard-basic" label="Standard" variant="standard" /> */}
 
