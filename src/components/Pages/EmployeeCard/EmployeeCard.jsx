@@ -11,7 +11,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 const image = 'https://media.licdn.com/dms/image/D5635AQFI-fq-7L0lFQ/profile-framedphoto-shrink_200_200/0/1706133354575?e=1711249200&v=beta&t=qyIzjLd5uqCwU8TmrG4gvN5A-sRIQqz9Ut4ZQ6CKDSY'
 
-function EmployeeBar(employeeProp) {
+function EmployeeCard(employeeProp) {
 
   // const store = useSelector((store) => store);
   // const [heading, setHeading] = useState('Functional Component');
@@ -53,4 +53,4 @@ console.log('employeeProp.employeeProp.first_name', employeeProp.employeeProp.fi
   );
 }
 
-export default EmployeeBar;
+export default EmployeeCard;

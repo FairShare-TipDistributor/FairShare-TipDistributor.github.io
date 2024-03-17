@@ -2,7 +2,7 @@
 import {useSelector, useDispatch} from 'react-redux';
 import { useEffect } from 'react';
 
-import EmployeeBar from "../EmployeeBar/EmployeeBar"
+import EmployeeCard from "../EmployeeCard/EmployeeCard"
 
 // ------ MUI ELEMENTS ------ //
 import { Box, Button, TextField } from '@mui/material'; 
@@ -41,8 +41,6 @@ useEffect(() => {
     
 
   return (
-    <>
-    <div className="mainDiv" style={{ margin: '10px 10px' }}>
       <Box sx={{ p: 2, border: '1px dashed grey' }} className="employeesBox"
         height='100%' //{200}
         width='100%'
@@ -52,19 +50,18 @@ useEffect(() => {
         alignItems="center"
         gap={4} 
         component="section" 
-        padding="10px"
+        // padding="10px"
         >
-        <div>
+    
 
         <h3 style={{ margin: '10px 10px' }}>Employees Management Page</h3>
-        <form >
-          <TextField id="outlined-basic" label="Search Employee" variant="outlined"  style={{ width: '75%' }}/>
+        <form style={{ width: '100%' }}>
+          <TextField id="outlined-basic" label="Search Employee" variant="outlined"  style={{ minWidth: '50%', maxWidth: '75%' }}/>
           <Button variant="contained" type='submit' >Search &nbsp;<SearchIcon /></Button>
         </form>
         {/* <TextField id="filled-basic" label="Filled" variant="filled" />
         <TextField id="standard-basic" label="Standard" variant="standard" /> */}
 
-        <textBox></textBox>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
@@ -97,17 +94,15 @@ useEffect(() => {
           <Table>
             {employeesStore && employeesStore.map((employee) => (
             <TableRow>
-                <EmployeeBar employeeProp={employee}/>
+                <EmployeeCard employeeProp={employee}/>
             </TableRow>
             ))}
           </Table>
+        <Button style={{ marginTop: '10px', marginBottom: '10px' }} variant="contained" type='submit' ><AddCircleOutlineIcon /> &nbsp; Add Employee</Button>
         </TableContainer>
 
-        <Button style={{ marginTop: '10px', marginBottom: '10px' }} variant="contained" type='submit' ><AddCircleOutlineIcon /> &nbsp; Add Employee</Button>
-        </div>
+     
       </Box>
-      </div>
-    </>
   );
 }
 
