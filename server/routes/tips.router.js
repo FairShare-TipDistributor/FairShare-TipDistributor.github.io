@@ -10,7 +10,7 @@ const Dinero = require("dinero.js");
  */
 router.get("/", (req, res) => {
 	const queryText = `
-  SELECT "tips"."id", "name", "employees"."id" AS "emp_id", to_char("date", 'YYYY-MM-DD') AS date, "share_total", "share_cash", "share_cc"
+  SELECT "tips"."id", "first_name", "employees"."id" AS "emp_id", to_char("date", 'YYYY-MM-DD') AS date, "share_total", "share_cash", "share_cc"
   FROM "tips" 
   JOIN "date" on "tips"."date_id" = "date"."id"
   JOIN "employees" ON "tips"."emp_id" = "employees"."id"; 

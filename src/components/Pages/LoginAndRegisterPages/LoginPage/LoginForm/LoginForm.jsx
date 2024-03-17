@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import RegisterForm from "../../RegisterPage/RegisterForm/RegisterForm";
+
+
 import {
 	PrimaryButton,
 	SecondaryButton,

@@ -1,0 +1,65 @@
+
+.formPanel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+/* .border {
+    border-style: solid;
+    border-color: red;
+} */
+
+.justInputs {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-start;
+    flex-wrap: wrap;
+
+
+}
+
+  /* Default width (for viewports smaller than 1200px and larger than 600px) */
+.input {
+    /* width: 100%; */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Media query for viewports 1200px and larger */
+@media (min-width: 1000px){
+    .input {
+        width: 30%;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1000px) {
+    .input {
+        width: 42%;
+    }
+
+}
+/* Media query for viewports smaller than 600px */
+@media (max-width: 800px){
+    .input {
+        width: 100%;
+    }
+}
+
+.submitButton {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
