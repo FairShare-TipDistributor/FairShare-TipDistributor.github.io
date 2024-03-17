@@ -16,10 +16,11 @@ function* addEmployee(action) {
 	try {
 		// const employee = yield axios.post("/employees");
 		yield axios.post("/employees", action.payload);
-
-		console.log('action.payload (Add SAGA)', action.payload);
+		yield put ({ type: 'FETCH_EMPLOYEES'});
+		// console.log('action.payload (Add SAGA)', action.payload);
 	} catch (error) {
 		console.log(`error in Add Employee (SAGA) ${error}`);
+		console.log(`error, action.payload: ${action.payload}`);
 		alert("Something went wrong");
 	}
 }
