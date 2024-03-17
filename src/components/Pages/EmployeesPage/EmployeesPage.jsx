@@ -30,11 +30,6 @@ function handleSubmit(event){
   console.log('event', event);
 };
 
-let myPaddingStyle = {
-  paddingTop: 10,
-  paddingBottom: 10,
-  margin: 10,
-}
 
 useEffect(() => {
     dispatch({ type: 'FETCH_EMPLOYEES' });
@@ -70,18 +65,18 @@ useEffect(() => {
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
-              <TableRow style={myPaddingStyle}>
+              <TableRow>
                 <TableCell style={{  fontWeight: 'bold'}} align="left">First Name</TableCell>
                 <TableCell style={{  fontWeight: 'bold'}} align="left">Last Name</TableCell>
                 <TableCell style={{  fontWeight: 'bold'}} align="left">Employee ID</TableCell>
                 <TableCell style={{  fontWeight: 'bold'}} align="left">Email</TableCell>
-                <TableCell style={{  fontWeight: 'bold'}} align="right">Edit</TableCell>
+                <TableCell style={{  fontWeight: 'bold'}} align="right"></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
 
               {employeesStore && employeesStore.map((employee) => (
-                <TableRow style={myPaddingStyle}
+                <TableRow
                   key={employee.name} 
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
