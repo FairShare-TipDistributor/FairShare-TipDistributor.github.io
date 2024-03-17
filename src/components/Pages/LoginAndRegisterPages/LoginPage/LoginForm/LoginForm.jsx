@@ -66,6 +66,9 @@ export default function LoginForm() {
 					>
 						User ID
 					</label>
+
+					<label htmlFor="username" style={{ fontWeight: 700 }}> (user ID = 'user1'. Password = 'user1') </label>
+
 					{/* <div /> */}
 					<div className="login-input-box">
 						<input
