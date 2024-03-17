@@ -2,6 +2,8 @@
 import {useSelector, useDispatch} from 'react-redux';
 import { useEffect } from 'react';
 
+import EmployeeBar from "../EmployeeBar/EmployeeBar"
+
 // ------ MUI ELEMENTS ------ //
 import { Box, Button, TextField } from '@mui/material'; 
 import Table from '@mui/material/Table';
@@ -40,8 +42,7 @@ useEffect(() => {
 
   return (
     <>
-    <div className="mainDiv" >
-
+    <div className="mainDiv" style={{ margin: '10px 10px' }}>
       <Box sx={{ p: 2, border: '1px dashed grey' }} className="employeesBox"
         height='100%' //{200}
         width='100%'
@@ -50,7 +51,9 @@ useEffect(() => {
         flexDirection="column"
         alignItems="center"
         gap={4} 
-        component="section" >
+        component="section" 
+        padding="10px"
+        >
         <div>
 
         <h3 style={{ margin: '10px 10px' }}>Employees Management Page</h3>
@@ -76,9 +79,9 @@ useEffect(() => {
             <TableBody>
 
               {employeesStore && employeesStore.map((employee) => (
-                <TableRow
+                <TableRow 
                   key={employee.name} 
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0, } }}
                 >
                   <TableCell component="th" scope="row">{employee.first_name}</TableCell>
                   <TableCell align="left">{employee.last_name}</TableCell>
@@ -90,8 +93,18 @@ useEffect(() => {
             </TableBody>
           </Table>
         </TableContainer>
+        <TableContainer>
+          <Table>
+            {employeesStore && employeesStore.map((employee) => (
+            <TableRow>
+                <EmployeeBar employeeProp={employee}/>
+            </TableRow>
+            ))}
+          </Table>
+        </TableContainer>
+
+        <Button style={{ marginTop: '10px', marginBottom: '10px' }} variant="contained" type='submit' ><AddCircleOutlineIcon /> &nbsp; Add Employee</Button>
         </div>
-        <Button variant="contained" type='submit' ><AddCircleOutlineIcon /> &nbsp; Add Employee</Button>
       </Box>
       </div>
     </>
