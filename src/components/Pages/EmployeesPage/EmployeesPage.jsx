@@ -15,6 +15,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 
 function EmployeesPage() {
@@ -29,14 +30,17 @@ function handleSubmit(event){
   console.log('event', event);
 };
 
+let myPaddingStyle = {
+  paddingTop: 10,
+  paddingBottom: 10,
+  margin: 10,
+}
+
 useEffect(() => {
     dispatch({ type: 'FETCH_EMPLOYEES' });
   }, []);
 
-  
-//   const emplyeesTestArray = [[1,'dave'], [3,'tom'], [14,'bob'], [2,'dale']]; 
-  // swap 'employeesStore' with 'emplyeesTestArray' to test basic .mp functionality. 
-    // must also change employee.id & employee.name to employee[0] (array index's)
+
     
 
   return (
@@ -66,7 +70,7 @@ useEffect(() => {
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
-              <TableRow>
+              <TableRow style={myPaddingStyle}>
                 <TableCell style={{  fontWeight: 'bold'}} align="left">First Name</TableCell>
                 <TableCell style={{  fontWeight: 'bold'}} align="left">Last Name</TableCell>
                 <TableCell style={{  fontWeight: 'bold'}} align="left">Employee ID</TableCell>
@@ -77,8 +81,8 @@ useEffect(() => {
             <TableBody>
 
               {employeesStore && employeesStore.map((employee) => (
-                <TableRow
-                  key={employee.name}
+                <TableRow style={myPaddingStyle}
+                  key={employee.name} 
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">{employee.first_name}</TableCell>
@@ -92,7 +96,7 @@ useEffect(() => {
           </Table>
         </TableContainer>
         </div>
-        <Button variant="contained" type='submit' >Add Employee &nbsp;<PersonAddAlt1Icon /></Button>
+        <Button variant="contained" type='submit' ><AddCircleOutlineIcon /> &nbsp; Add Employee</Button>
       </Box>
       </div>
     </>
