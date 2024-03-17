@@ -17,7 +17,6 @@ router.get('/', (req, res) => {
     `;
     pool.query(queryText).then(result => {
       res.send(result.rows);
-      console.log(result);
     }).catch(error => {
       console.log(`Error in GET tipsRouter ${error}`);
       res.sendStatus(500);
@@ -31,7 +30,22 @@ router.get('/', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-  // POST route code here
+  const { firstName, lastName, email } = req.body;
+  // console.log('req.body', req.body);
+  const queryText = `
+  INSERT INTO "employees" ( "first_name", "last_name", "email" )
+  VALUES ($1, $2, $3);`;
+  // VALUES ('a', 'b', 'c');`;
+  pool 
+    .query(queryText, [firstName, lastName, email])
+    // .query(queryText, [firstName, lastName, email])
+    .then(() => {
+      res.sendStatus(200)
+    })
+    .catch((error) => {
+      console.log('Error in employee.router POST', error);
+      console.log('req.body', req.body);
+    });
 });
 
 module.exports = router;

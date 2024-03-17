@@ -1,6 +1,9 @@
 // import React, { useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+import EmployeeCard from "../EmployeeCard/EmployeeCard"
+import AddEmployee from "../AddEmployee/AddEmployee"
 
 // ------ MUI ELEMENTS ------ //
 import { Box, Button, TextField } from '@mui/material'; 
@@ -12,36 +15,40 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import SearchIcon from '@mui/icons-material/Search';
+
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 
 function EmployeesPage() {
    
       const store = useSelector((store) => store);
       const employeesStore = useSelector(store => store.employees);
-    console.log('employeesStore (empPage)', employeesStore);
-    // Using hooks we're creating local state for a "heading" variable with
-//   const [heading, setHeading] = useState('Employees Page (State heading)');
+      let [trueFalse, setTrueFalse] = useState(false);
+
 const dispatch = useDispatch();
 
 function handleSubmit(event){
-  console.log('event', event);
+  // console.log('event', event);
 };
+
+const toggleIsActive = () => {
+  setTrueFalse(trueFalse => !trueFalse)
+  // console.log('trueFalse', trueFalse);
+  // let boolean = trueFalse
+  // setTrueFalse = (!boolean)
+  // console.log('boolean', boolean);
+}
 
 useEffect(() => {
     dispatch({ type: 'FETCH_EMPLOYEES' });
   }, []);
 
-  
-//   const emplyeesTestArray = [[1,'dave'], [3,'tom'], [14,'bob'], [2,'dale']]; 
-  // swap 'employeesStore' with 'emplyeesTestArray' to test basic .mp functionality. 
-    // must also change employee.id & employee.name to employee[0] (array index's)
+
     
 
   return (
-    <>
-    <div className="mainDiv" >
-
       <Box sx={{ p: 2, border: '1px dashed grey' }} className="employeesBox"
         height='100%' //{200}
         width='100%'
@@ -50,51 +57,74 @@ useEffect(() => {
         flexDirection="column"
         alignItems="center"
         gap={4} 
-        component="section" >
-        <div>
+        component="section" 
+        // padding="10px"
+        >
+    
 
         <h3 style={{ margin: '10px 10px' }}>Employees Management Page</h3>
-        <form >
-          <TextField id="outlined-basic" label="Search Employee" variant="outlined"  style={{ width: '75%' }}/>
+        <form style={{ width: '100%' }}>
+          <TextField id="outlined-basic" label="Search Employee" variant="outlined"  style={{ minWidth: '50%', maxWidth: '75%' }}/>
           <Button variant="contained" type='submit' >Search &nbsp;<SearchIcon /></Button>
         </form>
         {/* <TextField id="filled-basic" label="Filled" variant="filled" />
         <TextField id="standard-basic" label="Standard" variant="standard" /> */}
 
-        <textBox></textBox>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell style={{  fontWeight: 'bold'}} align="left">First Name</TableCell>
-                <TableCell style={{  fontWeight: 'bold'}} align="left">Last Name</TableCell>
-                <TableCell style={{  fontWeight: 'bold'}} align="left">Employee ID</TableCell>
-                <TableCell style={{  fontWeight: 'bold'}} align="left">Email</TableCell>
-                <TableCell style={{  fontWeight: 'bold'}} align="right">Edit</TableCell>
+                <TableCell id="thFirstName" style={{  fontWeight: 'bold'}} align="left">First Name</TableCell>
+                <TableCell id="thLastName" s style={{  fontWeight: 'bold'}} align="left">Last Name</TableCell>
+                <TableCell id="thEmpId" s style={{  fontWeight: 'bold'}} align="left">Employee ID</TableCell>
+                <TableCell id="thEmail" s style={{  fontWeight: 'bold'}} align="left">Email</TableCell>
+                <TableCell id="thEdit" s style={{  fontWeight: 'bold'}} align="right"></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
 
               {employeesStore && employeesStore.map((employee) => (
-                <TableRow
-                  key={employee.name}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                <TableRow 
+                  key={employee.name} 
+                  sx={{ '&:last-child td, &:last-child th': { border: 0, } }}
                 >
                   <TableCell component="th" scope="row">{employee.first_name}</TableCell>
                   <TableCell align="left">{employee.last_name}</TableCell>
                   <TableCell align="left">{1234}</TableCell>
                   <TableCell align="left">{employee.email}</TableCell>
-                  <TableCell align="left"> <Button variant="contained" type='submit' >Edit</Button></TableCell>
+                  <TableCell align="left"> <Button variant="text" type='submit' ><MoreHorizIcon /></Button></TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
-        </div>
-        <Button variant="contained" type='submit' >Add Employee &nbsp;<PersonAddAlt1Icon /></Button>
+        <TableContainer>
+          <Table>
+            {employeesStore && employeesStore.map((employee) => (
+            <TableRow>
+                <EmployeeCard employeeProp={employee}/>
+            </TableRow>
+            ))}
+          </Table>
+          {trueFalse == false ?  
+              <Button style={{ marginTop: '10px', marginBottom: '10px' }} 
+              variant="contained" 
+              type='submit'
+              onClick={toggleIsActive}
+              ><AddCircleOutlineIcon /> &nbsp; Add Employee</Button>
+              : 
+              <> 
+              <Button style={{ marginTop: '10px', marginBottom: '10px' }} 
+                  variant="contained" 
+                  type='submit'
+                  onClick={toggleIsActive}
+              ><AddCircleOutlineIcon /> &nbsp; Close</Button>
+              <AddEmployee /> </>
+          }
+        </TableContainer>
+
+     
       </Box>
-      </div>
-    </>
   );
 }
 
