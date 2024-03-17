@@ -30,7 +30,19 @@ router.get('/', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-  // POST route code here
+  const { firstName, lastName, email } = req.body;
+  console.log('req.body', req.body);
+  const queryText = `
+  INSERT INTO "employees" ( "first_name", "last_name", "email" )
+  VALUES ($1, $2, $3);`;
+  pool 
+    .query(queryText, [firstName, lastName, email])
+    .then(() => {
+      res.send(200);
+    })
+    .catch((error) => {
+      console.log('Error in employee.router POST', error);
+    });
 });
 
 module.exports = router;

@@ -31,7 +31,7 @@ function AddEmployee(props) {
 			// });
       console.log('f', firstName, 'l', lastName, 'e', email);
 		} else {
-			// dispatch({ type: "LOGIN_INPUT_ERROR" });
+			dispatch({ type: "LOGIN_INPUT_ERROR" });
 		}
 	}; // end login
 
