@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import { useEffect } from 'react';
 
 import EmployeeCard from "../EmployeeCard/EmployeeCard"
+import AddEmployee from "../AddEmployee/AddEmployee"
 
 // ------ MUI ELEMENTS ------ //
 import { Box, Button, TextField } from '@mui/material'; 
@@ -100,7 +101,7 @@ useEffect(() => {
           </Table>
         <Button style={{ marginTop: '10px', marginBottom: '10px' }} variant="contained" type='submit' ><AddCircleOutlineIcon /> &nbsp; Add Employee</Button>
         </TableContainer>
-
+        <AddEmployee />
      
       </Box>
   );
