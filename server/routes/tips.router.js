@@ -18,7 +18,6 @@ router.get("/", (req, res) => {
 	pool.query(queryText)
 		.then((result) => {
 			res.send(result.rows);
-			console.log('res:', res);
 		})
 		.catch((error) => {
 			console.log(`Error in GET tipsRouter ${error}`);

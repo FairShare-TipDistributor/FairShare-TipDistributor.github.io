@@ -19,7 +19,6 @@ function EmployeesPage() {
    
       const store = useSelector((store) => store);
       const employeesStore = useSelector(store => store.employees);
-    console.log('employeesStore (empPage)', employeesStore);
     // Using hooks we're creating local state for a "heading" variable with
 //   const [heading, setHeading] = useState('Employees Page (State heading)');
 const dispatch = useDispatch();
