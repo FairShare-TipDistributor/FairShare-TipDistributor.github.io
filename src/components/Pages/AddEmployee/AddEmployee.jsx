@@ -41,7 +41,7 @@ function AddEmployee(props) {
   return (
       <div className="formPanel">
       <h4>Add Employee </h4>
-
+      <br></br>
       {/* -- First Name --  */}
 			<form onSubmit={addEmployee} className="form border">
       <div className="justInputs border">
