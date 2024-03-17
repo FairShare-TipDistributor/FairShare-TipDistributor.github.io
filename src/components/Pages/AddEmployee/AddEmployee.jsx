@@ -22,16 +22,18 @@ function AddEmployee(props) {
   const addEmployee = (event) => {
 		event.preventDefault();
 		if (firstName && lastName) {
-			// dispatch({
-			// 	type: "LOGIN",
-			// 	payload: {
-			// 		username: "username",
-			// 		password: "password",
-			// 	},
-			// });
-      console.log('f', firstName, 'l', lastName, 'e', email);
+			dispatch({
+				type: "ADD_EMPLOYEE",
+				payload: {
+					firstName: firstName,
+					lastName: lastName,
+          email: email
+				},
+			});
+      // console.log('f', firstName, 'l', lastName, 'e', email);
 		} else {
-			dispatch({ type: "LOGIN_INPUT_ERROR" });
+			// dispatch({ type: "LOGIN_INPUT_ERROR" });
+      console.log('error in add employee dispatch');
 		}
 	}; // end login
 

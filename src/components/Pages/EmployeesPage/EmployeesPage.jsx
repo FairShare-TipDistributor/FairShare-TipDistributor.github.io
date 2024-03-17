@@ -30,7 +30,7 @@ function EmployeesPage() {
 const dispatch = useDispatch();
 
 function handleSubmit(event){
-  console.log('event', event);
+  // console.log('event', event);
 };
 
 

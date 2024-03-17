@@ -31,17 +31,20 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
   const { firstName, lastName, email } = req.body;
-  console.log('req.body', req.body);
+  // console.log('req.body', req.body);
   const queryText = `
   INSERT INTO "employees" ( "first_name", "last_name", "email" )
   VALUES ($1, $2, $3);`;
+  // VALUES ('a', 'b', 'c');`;
   pool 
     .query(queryText, [firstName, lastName, email])
+    // .query(queryText, [firstName, lastName, email])
     .then(() => {
-      res.send(200);
+      res.sendStatus(200)
     })
     .catch((error) => {
       console.log('Error in employee.router POST', error);
+      console.log('req.body', req.body);
     });
 });
 
