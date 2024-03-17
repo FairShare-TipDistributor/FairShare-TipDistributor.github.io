@@ -1,6 +1,6 @@
 // import React, { useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import EmployeeCard from "../EmployeeCard/EmployeeCard"
 import AddEmployee from "../AddEmployee/AddEmployee"
@@ -25,14 +25,21 @@ function EmployeesPage() {
    
       const store = useSelector((store) => store);
       const employeesStore = useSelector(store => store.employees);
-    // Using hooks we're creating local state for a "heading" variable with
-//   const [heading, setHeading] = useState('Employees Page (State heading)');
+      let [trueFalse, setTrueFalse] = useState(false);
+
 const dispatch = useDispatch();
 
 function handleSubmit(event){
   // console.log('event', event);
 };
 
+const toggleIsActive = () => {
+  setTrueFalse(trueFalse => !trueFalse)
+  // console.log('trueFalse', trueFalse);
+  // let boolean = trueFalse
+  // setTrueFalse = (!boolean)
+  // console.log('boolean', boolean);
+}
 
 useEffect(() => {
     dispatch({ type: 'FETCH_EMPLOYEES' });
@@ -67,11 +74,11 @@ useEffect(() => {
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell style={{  fontWeight: 'bold'}} align="left">First Name</TableCell>
-                <TableCell style={{  fontWeight: 'bold'}} align="left">Last Name</TableCell>
-                <TableCell style={{  fontWeight: 'bold'}} align="left">Employee ID</TableCell>
-                <TableCell style={{  fontWeight: 'bold'}} align="left">Email</TableCell>
-                <TableCell style={{  fontWeight: 'bold'}} align="right"></TableCell>
+                <TableCell id="thFirstName" style={{  fontWeight: 'bold'}} align="left">First Name</TableCell>
+                <TableCell id="thLastName" s style={{  fontWeight: 'bold'}} align="left">Last Name</TableCell>
+                <TableCell id="thEmpId" s style={{  fontWeight: 'bold'}} align="left">Employee ID</TableCell>
+                <TableCell id="thEmail" s style={{  fontWeight: 'bold'}} align="left">Email</TableCell>
+                <TableCell id="thEdit" s style={{  fontWeight: 'bold'}} align="right"></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -99,9 +106,23 @@ useEffect(() => {
             </TableRow>
             ))}
           </Table>
-        <Button style={{ marginTop: '10px', marginBottom: '10px' }} variant="contained" type='submit' ><AddCircleOutlineIcon /> &nbsp; Add Employee</Button>
+          {trueFalse == false ?  
+              <Button style={{ marginTop: '10px', marginBottom: '10px' }} 
+              variant="contained" 
+              type='submit'
+              onClick={toggleIsActive}
+              ><AddCircleOutlineIcon /> &nbsp; Add Employee</Button>
+              : 
+              <> 
+              <Button style={{ marginTop: '10px', marginBottom: '10px' }} 
+                  variant="contained" 
+                  type='submit'
+                  onClick={toggleIsActive}
+              ><AddCircleOutlineIcon /> &nbsp; Close</Button>
+              <AddEmployee /> </>
+          }
         </TableContainer>
-        <AddEmployee />
+
      
       </Box>
   );

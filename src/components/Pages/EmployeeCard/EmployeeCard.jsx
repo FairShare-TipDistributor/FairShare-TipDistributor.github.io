@@ -13,9 +13,7 @@ const image = 'https://media.licdn.com/dms/image/D5635AQFI-fq-7L0lFQ/profile-fra
 
 function EmployeeCard(employeeProp) {
 
-  // const store = useSelector((store) => store);
-  // const [heading, setHeading] = useState('Functional Component');
-console.log('employeeProp.employeeProp.first_name', employeeProp.employeeProp.first_name);
+// console.log('employeeProp.employeeProp.first_name', employeeProp.employeeProp.first_name);
   return (
     <>
       <Card sx={{ display: 'flex', width: '100%', height: '4rem', marginTop: .5, marginBottom: .5 }}>
