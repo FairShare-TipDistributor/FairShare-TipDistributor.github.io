@@ -12,6 +12,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import SearchIcon from '@mui/icons-material/Search';
+
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 
 
@@ -83,7 +85,7 @@ useEffect(() => {
                   <TableCell align="left">{employee.last_name}</TableCell>
                   <TableCell align="left">{1234}</TableCell>
                   <TableCell align="left">{employee.email}</TableCell>
-                  <TableCell align="left"> <Button variant="contained" type='submit' >Edit</Button></TableCell>
+                  <TableCell align="left"> <Button variant="text" type='submit' ><MoreHorizIcon /></Button></TableCell>
                 </TableRow>
               ))}
             </TableBody>
