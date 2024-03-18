@@ -1,11 +1,13 @@
 import { put, takeLatest } from "redux-saga/effects";
 import axios from "axios";
 
-function* getEmployees() {
+function* getEmployees(action) {
 	try {
-		const employees = yield axios.get("/employees");
+		console.log('action:---', action);
+		console.log('action.payload:---', action.payload);
+		const employees = yield axios.post("/employees", action.payload);
 		yield put({ type: "SET_EMPLOYEES", payload: employees.data });
-		// console.log('employees.data (SAGA)', employees.data);
+		console.log('employees.data (SAGA)', employees.data);
 	} catch (error) {
 		console.log(`error in Get Employees (SAGA) ${error}`);
 		alert("Something went wrong");
@@ -24,6 +26,7 @@ function* addEmployee(action) {
 		alert("Something went wrong");
 	}
 }
+
 function* employeesSaga() {
 	yield takeLatest("FETCH_EMPLOYEES", getEmployees);
 	yield takeLatest("ADD_EMPLOYEE", addEmployee);

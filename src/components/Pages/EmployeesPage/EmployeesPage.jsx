@@ -20,6 +20,13 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
+import {
+	PrimaryButton,
+	SecondaryButton,
+	TertiaryButton,
+} from "../../../components/Buttons/DesignedButtons";
+import "../../Pages/LoginAndRegisterPages/LoginAndRegister.css"
+
 
 function EmployeesPage() {
    
@@ -27,11 +34,26 @@ function EmployeesPage() {
       const employeesStore = useSelector(store => store.employees);
       let [trueFalse, setTrueFalse] = useState(false);
 
+      const [searchInput, setSearchInput] = useState("");
+
 const dispatch = useDispatch();
 
-function handleSubmit(event){
-  // console.log('event', event);
+const searchEmployee = (event) => {
+  event.preventDefault();
+  const searchItem = {
+    searchInput: searchInput
+  };
+  console.log('searchInput', searchInput);
+  console.log('event', event);
+  console.log('searchInput', searchInput);
+  dispatch({
+    type: "FETCH_EMPLOYEES",
+    payload: searchItem,
+  });
 };
+
+
+
 
 const toggleIsActive = () => {
   setTrueFalse(trueFalse => !trueFalse)
@@ -67,6 +89,32 @@ useEffect(() => {
           <TextField id="outlined-basic" label="Search Employee" variant="outlined"  style={{ minWidth: '50%', maxWidth: '75%' }}/>
           <Button variant="contained" type='submit' >Search &nbsp;<SearchIcon /></Button>
         </form>
+        <div className="formPanel">
+          <form onSubmit={searchEmployee} className="searchForm">
+              <div className="searchDiv">
+                  <label
+                    htmlFor="searchInput"
+                    style={{ fontWeight: 700 }}
+                  >
+                    Search Employee
+                  </label>
+                  <div className="login-input-box height">
+                    <input 
+                      id="login-input"
+                      type="text"
+                      name="searchInput"
+                      required
+                      
+                      value={searchInput} 
+                      onChange={(event) =>
+                        setSearchInput(event.target.value)
+                      }
+                  />
+                  </div>
+              </div>
+              <PrimaryButton id="addEmployee" className="submitButton" text="Search"  />
+          </form>
+        </div>
         {/* <TextField id="filled-basic" label="Filled" variant="filled" />
         <TextField id="standard-basic" label="Standard" variant="standard" /> */}
 
@@ -119,7 +167,8 @@ useEffect(() => {
                   type='submit'
                   onClick={toggleIsActive}
               ><AddCircleOutlineIcon /> &nbsp; Close</Button>
-              <AddEmployee /> </>
+                  <AddEmployee /> 
+              </>
           }
         </TableContainer>
 

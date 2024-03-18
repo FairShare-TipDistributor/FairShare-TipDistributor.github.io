@@ -4,8 +4,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
 }
+
 
 .form {
     width: 100%;
@@ -15,10 +15,16 @@
     justify-content: flex-start;
 }
 
-/* .border {
+
+.borderRed {
     border-style: solid;
     border-color: red;
-} */
+}
+.borderBlue {
+    border-style: solid;
+    border-color: blue;
+}
+
 
 .justInputs {
     width: 100%;
@@ -63,3 +69,32 @@
     margin-right: 10px;
 }
 
+
+.searchDiv {
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* display: flex;
+    flex-direction: row; */
+}
+
+.height {
+    max-height: 52px;
+    min-height: 32px;
+    /* height: 52px; */
+}
+
+.searchForm {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+/* Media query for viewports smaller than 600px */
+@media (max-width: 800px){
+    .searchForm {
+        width: 100%;
+    }
+}
