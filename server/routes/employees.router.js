@@ -7,18 +7,17 @@ const router = express.Router();
  */
 // router.get doesn't send a req.body. Must use router.post instead. :(
 router.post('/', (req, res) => {
-  const searchItem = req.body.searchInput
-  // const { searchItem2 } = req.body
-  console.log('req.body', req.body);
-  console.log('req.body.payload', req.body.payload);
-  console.log('req.body.searchInput', req.body.searchInput);
+  // console.log('req.body', req.body);
   // console.log('req.body.searchInput', req.body.searchInput);
-  // const reqbody = req.body
-  // console.log('req.query', req.query.data);
 
-  // console.log('req.searchInput', req.searchInput);
-  // console.log('req.body.searchInput', req.body.searchInput);
-  // console.log('searchitem2', searchItem2);
+  // -- If searchItem is empty then set it to an empty String. --
+  const searchItem = 
+      (req.body.searchInput  && req.body.searchInput .trim()) // if this (exists AND exists when trimmed)
+      ?              // then 
+      req.body.searchInput     // this
+      :             // else
+      '';           // that
+  // console.log(searchItem); 
 
   const queryText = `
     SELECT * FROM "employees"
