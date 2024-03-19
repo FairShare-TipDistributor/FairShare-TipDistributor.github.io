@@ -78,8 +78,8 @@
     flex-direction: row; */
 }
 
-.height {
-    max-height: 52px;
+.inputHeight {
+    /* max-height: 72px; */
     min-height: 32px;
     /* height: 52px; */
 }

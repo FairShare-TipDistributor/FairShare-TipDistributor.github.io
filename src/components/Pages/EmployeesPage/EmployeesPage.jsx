@@ -38,8 +38,12 @@ function EmployeesPage() {
 
 const dispatch = useDispatch();
 
+const log = (event) => {
+  console.log(event);
+}
+
 const searchEmployee = (event) => {
-  event.preventDefault();
+  // event.preventDefault();
   const searchItem = {
     searchInput: searchInput
   };
@@ -51,8 +55,6 @@ const searchEmployee = (event) => {
     payload: searchItem,
   });
 };
-
-
 
 
 const toggleIsActive = () => {
@@ -68,8 +70,7 @@ useEffect(() => {
   }, []);
 
 
-    
-
+  
   return (
       <Box sx={{ p: 2, border: '1px dashed grey' }} className="employeesBox"
         height='100%' //{200}
@@ -90,15 +91,15 @@ useEffect(() => {
           <Button variant="contained" type='submit' >Search &nbsp;<SearchIcon /></Button>
         </form>
         <div className="formPanel">
-          <form onSubmit={searchEmployee} className="searchForm">
+          <form onChange={searchEmployee} className="searchForm">
               <div className="searchDiv">
                   <label
-                    htmlFor="searchInput"
+                    htmlFor="searchInput "
                     style={{ fontWeight: 700 }}
                   >
                     Search Employee
                   </label>
-                  <div className="login-input-box height">
+                  <div className="login-input-box inputHeight">
                     <input 
                       id="login-input"
                       type="text"
@@ -112,7 +113,7 @@ useEffect(() => {
                   />
                   </div>
               </div>
-              <PrimaryButton id="addEmployee" className="submitButton" text="Search"  />
+              {/* <PrimaryButton id="addEmployee" className="submitButton" text="Search"  /> */}
           </form>
         </div>
         {/* <TextField id="filled-basic" label="Filled" variant="filled" />
