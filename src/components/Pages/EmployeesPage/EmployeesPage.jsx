@@ -108,7 +108,7 @@ useEffect(() => {
         {/* <TextField id="filled-basic" label="Filled" variant="filled" />
         <TextField id="standard-basic" label="Standard" variant="standard" /> */}
 
-        <TableContainer component={Paper}>
+        {/* <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -135,7 +135,7 @@ useEffect(() => {
               ))}
             </TableBody>
           </Table>
-        </TableContainer>
+        </TableContainer> */}
         <TableContainer>
           <Table>
             {employeesStore && employeesStore.map((employee) => (
