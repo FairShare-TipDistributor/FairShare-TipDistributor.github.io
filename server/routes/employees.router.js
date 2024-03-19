@@ -5,14 +5,25 @@ const router = express.Router();
 /**
  * GET route 
  */
-// SELECT and SEARCH "first_name", "last_name", "id", "email"
-// FROM employees; 
-router.get('/', (req, res) => {
-    const queryText = `
+// router.get doesn't send a req.body. Must use router.post instead. :(
+router.post('/', (req, res) => {
+  // console.log('req.body', req.body);
+  // console.log('req.body.searchInput', req.body.searchInput);
+
+  // -- If searchItem is empty then set it to an empty String. --
+  const searchItem = 
+      (req.body.searchInput  && req.body.searchInput.trim()) // if this (exists AND exists when trimmed)
+      ?              // then 
+      req.body.searchInput     // this
+      :             // else
+      '';           // that
+  // console.log(searchItem); 
+
+  const queryText = `
     SELECT * FROM "employees"
-    WHERE "first_name" LIKE '%%'
-    OR "last_name" LIKE '%%'
-    OR "email" LIKE '%%'
+    WHERE "first_name" ILIKE '%${searchItem}%' 
+    OR "last_name" ILIKE '%${searchItem}%' 
+    OR "email" ILIKE '%${searchItem}%'
     ;
     `;
     pool.query(queryText).then(result => {
@@ -31,7 +42,7 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
   const { firstName, lastName, email } = req.body;
-  // console.log('req.body', req.body);
+  console.log('req.body', req.body);
   const queryText = `
   INSERT INTO "employees" ( "first_name", "last_name", "email" )
   VALUES ($1, $2, $3);`;

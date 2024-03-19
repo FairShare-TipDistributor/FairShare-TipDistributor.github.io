@@ -17,8 +17,10 @@ import Paper from '@mui/material/Paper';
 import SearchIcon from '@mui/icons-material/Search';
 
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
+// import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+
+import "../../Pages/LoginAndRegisterPages/LoginAndRegister.css"
 
 
 function EmployeesPage() {
@@ -27,11 +29,27 @@ function EmployeesPage() {
       const employeesStore = useSelector(store => store.employees);
       let [trueFalse, setTrueFalse] = useState(false);
 
+      const [searchInput, setSearchInput] = useState("");
+
 const dispatch = useDispatch();
 
-function handleSubmit(event){
-  // console.log('event', event);
+
+const searchEmployee = (value) => {
+  setSearchInput(value); // set useState
+  fetchEmployees(value); // fetch employees 
+}
+
+const fetchEmployees = (value) => {
+  // event.preventDefault();
+  const searchItem = {
+    searchInput: value
+  };
+  dispatch({
+    type: "FETCH_EMPLOYEES",
+    payload: searchItem,
+  });
 };
+
 
 const toggleIsActive = () => {
   setTrueFalse(trueFalse => !trueFalse)
@@ -46,8 +64,7 @@ useEffect(() => {
   }, []);
 
 
-    
-
+  
   return (
       <Box sx={{ p: 2, border: '1px dashed grey' }} className="employeesBox"
         height='100%' //{200}
@@ -56,7 +73,7 @@ useEffect(() => {
         display="flex"
         flexDirection="column"
         alignItems="center"
-        gap={4} 
+        gap={0} 
         component="section" 
         // padding="10px"
         >
@@ -67,6 +84,27 @@ useEffect(() => {
           <TextField id="outlined-basic" label="Search Employee" variant="outlined"  style={{ minWidth: '50%', maxWidth: '75%' }}/>
           <Button variant="contained" type='submit' >Search &nbsp;<SearchIcon /></Button>
         </form>
+        <div className="formPanel">
+          <form className="searchForm">
+              <div className="searchDiv">
+                  {/* <label htmlFor="searchInput " style={{ fontWeight: 700 }} > Search Employee </label> */}
+                  <div className="login-input-box inputHeight">
+                    <input 
+                      id="login-input"
+                      type="text"
+                      name="searchInput"
+                      required
+                      placeholder="Search Employee"
+                      value={searchInput} 
+                      onChange={(event) =>
+                        searchEmployee(event.target.value)
+                      }
+                  />
+                  </div>
+              </div>
+              {/* <PrimaryButton id="addEmployee" className="submitButton" text="Search"  /> */}
+          </form>
+        </div>
         {/* <TextField id="filled-basic" label="Filled" variant="filled" />
         <TextField id="standard-basic" label="Standard" variant="standard" /> */}
 
@@ -119,7 +157,8 @@ useEffect(() => {
                   type='submit'
                   onClick={toggleIsActive}
               ><AddCircleOutlineIcon /> &nbsp; Close</Button>
-              <AddEmployee /> </>
+                  <AddEmployee /> 
+              </>
           }
         </TableContainer>
 
