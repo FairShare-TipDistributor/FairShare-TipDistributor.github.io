@@ -38,18 +38,17 @@ function EmployeesPage() {
 
 const dispatch = useDispatch();
 
-const log = (event) => {
-  console.log(event);
+
+const searchEmployee = (value) => {
+  setSearchInput(value); // set useState
+  fetchEmployees(value); // fetch employees 
 }
 
-const searchEmployee = (event) => {
+const fetchEmployees = (value) => {
   // event.preventDefault();
   const searchItem = {
-    searchInput: searchInput
+    searchInput: value
   };
-  console.log('searchInput', searchInput);
-  console.log('event', event);
-  console.log('searchInput', searchInput);
   dispatch({
     type: "FETCH_EMPLOYEES",
     payload: searchItem,
@@ -79,7 +78,7 @@ useEffect(() => {
         display="flex"
         flexDirection="column"
         alignItems="center"
-        gap={4} 
+        gap={0} 
         component="section" 
         // padding="10px"
         >
@@ -91,24 +90,19 @@ useEffect(() => {
           <Button variant="contained" type='submit' >Search &nbsp;<SearchIcon /></Button>
         </form>
         <div className="formPanel">
-          <form onChange={searchEmployee} className="searchForm">
+          <form className="searchForm">
               <div className="searchDiv">
-                  <label
-                    htmlFor="searchInput "
-                    style={{ fontWeight: 700 }}
-                  >
-                    Search Employee
-                  </label>
+                  {/* <label htmlFor="searchInput " style={{ fontWeight: 700 }} > Search Employee </label> */}
                   <div className="login-input-box inputHeight">
                     <input 
                       id="login-input"
                       type="text"
                       name="searchInput"
                       required
-                      
+                      placeholder="Search Employee"
                       value={searchInput} 
                       onChange={(event) =>
-                        setSearchInput(event.target.value)
+                        searchEmployee(event.target.value)
                       }
                   />
                   </div>

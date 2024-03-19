@@ -12,7 +12,7 @@ router.post('/', (req, res) => {
 
   // -- If searchItem is empty then set it to an empty String. --
   const searchItem = 
-      (req.body.searchInput  && req.body.searchInput .trim()) // if this (exists AND exists when trimmed)
+      (req.body.searchInput  && req.body.searchInput.trim()) // if this (exists AND exists when trimmed)
       ?              // then 
       req.body.searchInput     // this
       :             // else
