@@ -17,14 +17,9 @@ import Paper from '@mui/material/Paper';
 import SearchIcon from '@mui/icons-material/Search';
 
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
+// import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
-import {
-	PrimaryButton,
-	SecondaryButton,
-	TertiaryButton,
-} from "../../../components/Buttons/DesignedButtons";
 import "../../Pages/LoginAndRegisterPages/LoginAndRegister.css"
 
 
