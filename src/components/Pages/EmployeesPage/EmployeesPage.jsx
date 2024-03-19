@@ -66,7 +66,7 @@ useEffect(() => {
 
   
   return (
-      <Box sx={{ p: 2, border: '1px dashed grey' }} className="employeesBox"
+      <Box sx={{ p: 2 }} className="employeesBox"
         height='100%' //{200}
         width='100%'
         my={4}
@@ -80,10 +80,10 @@ useEffect(() => {
     
 
         <h3 style={{ margin: '10px 10px' }}>Employees Management Page</h3>
-        <form style={{ width: '100%' }}>
+        {/* <form style={{ width: '100%' }}>
           <TextField id="outlined-basic" label="Search Employee" variant="outlined"  style={{ minWidth: '50%', maxWidth: '75%' }}/>
           <Button variant="contained" type='submit' >Search &nbsp;<SearchIcon /></Button>
-        </form>
+        </form> */}
         <div className="formPanel">
           <form className="searchForm">
               <div className="searchDiv">
@@ -108,7 +108,7 @@ useEffect(() => {
         {/* <TextField id="filled-basic" label="Filled" variant="filled" />
         <TextField id="standard-basic" label="Standard" variant="standard" /> */}
 
-        <TableContainer component={Paper}>
+        {/* <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -135,7 +135,7 @@ useEffect(() => {
               ))}
             </TableBody>
           </Table>
-        </TableContainer>
+        </TableContainer> */}
         <TableContainer>
           <Table>
             {employeesStore && employeesStore.map((employee) => (
