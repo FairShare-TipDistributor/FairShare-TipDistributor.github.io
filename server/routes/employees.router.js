@@ -5,19 +5,21 @@ const router = express.Router();
 /**
  * GET route 
  */
-// router.get doesn't send a req.body. Must use router.post instead. :(
-router.post('/', (req, res) => {
-  // console.log('req.body', req.body);
-  // console.log('req.body.searchInput', req.body.searchInput);
+// router.get doesn't send a req.body, only a req.params. Must use router.post for req.body.
+router.get('/:searchInput', (req, res) => {
+  let searchItem 
 
-  // -- If searchItem is empty then set it to an empty String. --
-  const searchItem = 
-      (req.body.searchInput  && req.body.searchInput.trim()) // if this (exists AND exists when trimmed)
-      ?              // then 
-      req.body.searchInput     // this
-      :             // else
-      '';           // that
-  // console.log(searchItem); 
+  // If the req.params is '-searchAll-', then use empty string to search All employees
+  // Else if req.params has any other value, search for that value.
+  if (req.params.searchInput === '-searchAll-' ){
+    searchItem = ""
+    // console.log('search all');
+  } else {
+    searchItem = req.params.searchInput
+    // console.log('search one');
+  };
+  
+console.log('searchItem', searchItem);
 
   const queryText = `
     SELECT * FROM "employees"
