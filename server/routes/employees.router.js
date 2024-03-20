@@ -5,47 +5,22 @@ const router = express.Router();
 /**
  * GET route 
  */
-// router.get doesn't send a req.body. Must use router.post instead. :(
-router.get('/:object', (req, res) => {
-  // console.log('req.body', req.body);
-  // console.log('req.body.searchInput', req.body.searchInput);
-  console.log('req.params.object', req.params.object);
-  // console.log('req.params.searchItem.searchInput', req.params.searchItem.searchInput);
-  // console.log('req.params.searchInput', req.params.searchItem.searchInput);
-  // -- If searchItem is empty then set it to an empty String. --
-  // let searchItem = req.params.searchItem
+// router.get doesn't send a req.body, only a req.params. Must use router.post for req.body.
+router.get('/:searchInput', (req, res) => {
+  let searchItem 
 
-
-
-//   console.log('req.params.searchItem', req.params.searchItem);
+  // If the req.params is '-searchAll-', then use empty string to search All employees
+  // Else if req.params has any other value, search for that value.
+  if (req.params.searchInput === '-searchAll-' ){
+    searchItem = ""
+    // console.log('search all');
+  } else {
+    searchItem = req.params.searchInput
+    // console.log('search one');
+  };
   
-// let searchItem = req.params.searchItem
-// if ( searchItem && searchItem.trim() ) {
-//   // searchItem = req.params.searchItem
-//   console.log('searchItem: searchItem', searchItem); 
-// } else {
-//   searchItem = ''
-//   console.log('fail');
-// }
-
-// = (req.params.searchItem && req.params.searchItem.trim()) // if this (exists AND exists when trimmed)
-// console.log('re', searchItem)
-//       ?              // then 
-//       req.params.searchItem   // this
-//       :             // else
-//       '';           // that
-  // console.log('searchItem', searchItem); 
-
-  // let searchItem = req.params.object
-  let searchItem = ''
 console.log('searchItem', searchItem);
-  // const queryText = `
-  //   SELECT * FROM "employees"
-  //   WHERE "first_name" ILIKE '%${searchItem}%' 
-  //   OR "last_name" ILIKE '%${searchItem}%' 
-  //   OR "email" ILIKE '%${searchItem}%'
-  //   ;
-  //   `;
+
   const queryText = `
     SELECT * FROM "employees"
     WHERE "first_name" ILIKE '%${searchItem}%' 

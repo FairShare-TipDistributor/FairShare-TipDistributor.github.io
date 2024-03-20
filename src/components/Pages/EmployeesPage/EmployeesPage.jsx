@@ -39,16 +39,24 @@ const searchEmployee = (value) => {
   fetchEmployees(value); // fetch employees 
 }
 
-const fetchEmployees = (value) => {
+function fetchEmployees(value) {
   // event.preventDefault();
   const searchItem = {
-    searchInput: value
+    searchInput: '-searchAll-'
   };
+  if (value.length && value.length > 0 ) {
+    searchItem.searchInput = value
+    console.log('value.length > 0,', value);
+  } else {
+    searchItem.searchInput = '-searchAll-'
+    console.log('value.length < 0,', value);
+  }
+  
+  console.log('searchItem sent:', searchItem);
   dispatch({
     type: "FETCH_EMPLOYEES",
     payload: searchItem,
   });
-  console.log('searchItem', searchItem);
 };
 
 
@@ -61,29 +69,10 @@ const toggleIsActive = () => {
 }
 
 useEffect(() => {
-  console.log('searchInput', searchInput);
-  if (searchInput && searchInput.trim() ){
-    console.log('searchInput', searchInput);
-    const searchItem = {
-      searchInput: searchInput
-    };
+// fetchEmployees('-searchAll-');
     dispatch({ 
-      type: 'FETCH_EMPLOYEES',
-      payload: searchItem
+      type: 'FETCH_ALL_EMPLOYEES',
     });
-    console.log('vA searchItem', searchItem);
-
-    
-  } else {
-    const searchItem = {
-      searchInput: ''
-    };
-    dispatch({ 
-      type: 'FETCH_EMPLOYEES',
-      payload: searchItem
-    });
-    console.log('vB searchItem', searchItem);
-  }
   }, []);
 
 
