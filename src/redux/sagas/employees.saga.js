@@ -3,11 +3,12 @@ import axios from "axios";
 
 function* getEmployees(action) {
 	try {
-		console.log('action:---', action);
-		console.log('action.payload:---', action.payload);
-		const employees = yield axios.post("/employees", action.payload);
+		// console.log('action:---', action);
+		// console.log('action.payload:---', action.payload);
+		// console.log('action.payload.searchInput', action.payload.searchInput);
+		const employees = yield axios.get(`/employees/dave`);
 		yield put({ type: "SET_EMPLOYEES", payload: employees.data });
-		console.log('employees.data (SAGA)', employees.data);
+		// console.log('employees.data (SAGA)', employees.data);
 	} catch (error) {
 		console.log(`error in Get Employees (SAGA) ${error}`);
 		alert("Something went wrong");

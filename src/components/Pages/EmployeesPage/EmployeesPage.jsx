@@ -48,6 +48,7 @@ const fetchEmployees = (value) => {
     type: "FETCH_EMPLOYEES",
     payload: searchItem,
   });
+  console.log('searchItem', searchItem);
 };
 
 
@@ -60,7 +61,29 @@ const toggleIsActive = () => {
 }
 
 useEffect(() => {
-    dispatch({ type: 'FETCH_EMPLOYEES' });
+  console.log('searchInput', searchInput);
+  if (searchInput && searchInput.trim() ){
+    console.log('searchInput', searchInput);
+    const searchItem = {
+      searchInput: searchInput
+    };
+    dispatch({ 
+      type: 'FETCH_EMPLOYEES',
+      payload: searchItem
+    });
+    console.log('vA searchItem', searchItem);
+
+    
+  } else {
+    const searchItem = {
+      searchInput: ''
+    };
+    dispatch({ 
+      type: 'FETCH_EMPLOYEES',
+      payload: searchItem
+    });
+    console.log('vB searchItem', searchItem);
+  }
   }, []);
 
 
