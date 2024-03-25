@@ -21,7 +21,7 @@ import { red } from '@mui/material/colors';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 
-const image = 'https://media.licdn.com/dms/image/D5635AQFI-fq-7L0lFQ/profile-framedphoto-shrink_200_200/0/1706133354575?e=1711249200&v=beta&t=qyIzjLd5uqCwU8TmrG4gvN5A-sRIQqz9Ut4ZQ6CKDSY'
+const image = 'https://media.licdn.com/dms/image/D5635AQFI-fq-7L0lFQ/profile-framedphoto-shrink_200_200/0/1706133354575?e=1712012400&v=beta&t=zQYxv-z3sXg-FXFzX3qoW2EbD9pxTvP22NbnfFV5oTQ'
 
 function EmployeeCard(employeeProp) {
   const [expanded, setExpanded] = React.useState(false);
