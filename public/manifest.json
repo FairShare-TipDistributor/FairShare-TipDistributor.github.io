@@ -1,6 +1,7 @@
 {
-	"short_name": "React App",
-	"name": "Create React App Sample",
+	"name": "Fair Share - Tip Distributor App",
+	"short_name": "Fair Share",
+	"description": "Tip Distributor App",
 	"icons": [
 		{
 			"src": "favicon.ico",
@@ -8,14 +9,22 @@
 			"type": "image/x-icon"
 		},
 		{
-			"src": "logo192.png",
+            "src": "Icon512.webp",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+		{
+			"src": "Icon192.webp",
+			"sizes": "192x192",
 			"type": "image/png",
-			"sizes": "192x192"
+			"purpose": "any"
 		},
 		{
-			"src": "logo512.png",
-			"type": "image/png",
-			"sizes": "512x512"
+			"src": "Icon144.webp",
+            "sizes":"144x144",
+            "type": "image/png",
+            "purpose": "maskable"
 		}
 	],
 	"start_url": ".",
