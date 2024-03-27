@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 
 import RegisterForm from "../../RegisterPage/RegisterForm/RegisterForm";
 
+import FairShareLogoMobile from "../../../../../Images/FairShareLogoMobile.png";
 
 import {
 	PrimaryButton,
@@ -51,6 +52,7 @@ export default function LoginForm() {
 	}
 
 	return (
+	<div>
 		<div className="formPanel">
 			<form onSubmit={login}>
 				<h4 className="login-heading-4">Log In</h4>
@@ -67,7 +69,9 @@ export default function LoginForm() {
 						User ID
 					</label>
 
-					<label htmlFor="username" style={{ fontWeight: 700 }}> (user ID = 'user1'. Password = 'user1') </label>
+					<label htmlFor="username" style={{ fontWeight: 700 }}>
+						{/* (user ID = 'user1'. Password = 'user1')  */}
+					</label>
 
 					{/* <div /> */}
 					<div className="login-input-box">
@@ -144,5 +148,6 @@ export default function LoginForm() {
 				</form>
 			</div>
 		</div>
+	</div>
 	);
 }
