@@ -1,7 +1,7 @@
 import "../../styles/globals.css";
 import "./App.css";
 
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
 	HashRouter as Router,
 	Redirect,
@@ -30,7 +30,24 @@ import ShiftsPage from "../Pages/ShiftsPage/ShiftsPage";
 
 function App() {
 	const dispatch = useDispatch();
+	const [isMobile, setIsMobile] = useState(false);
+
 	const user = useSelector((store) => store.user);
+
+	useEffect(() =>{
+		function handleResize() {
+			const{ innerWidth, innerHeight } = window;
+			const aspectRatio = innerWidth / innerHeight;
+
+			const mobileAspectRatioThreshold = 0.75;
+			setIsMobile(aspectRatio < mobileAspectRatioThreshold)
+			console.log('isMobile:', isMobile);
+		}
+		handleResize();
+		window.addEventListener('resize', handleResize);
+		// clean function, remove event listener
+		return () => window.removeEventListener('resize', handleResize);
+	}, [] )
 
 	useEffect(() => {
 		dispatch({ type: "FETCH_USER" });
