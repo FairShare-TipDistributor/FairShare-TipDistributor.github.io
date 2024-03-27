@@ -27,6 +27,7 @@ import CalcEntryPage from "../Pages/CalcEntryPage/CalcEntryPage";
 
 import EmployeesPage from "../Pages/EmployeesPage/EmployeesPage";
 import ShiftsPage from "../Pages/ShiftsPage/ShiftsPage";
+import Navbar from "../Navbar/Navbar"
 
 function App() {
 	const dispatch = useDispatch();
@@ -56,6 +57,9 @@ function App() {
 	return (
 		<Router>
 			<div className="App" >
+			{user.id && (
+				<Navbar />
+			)}
 				<header className="App-header"></header>
 				<Switch>
 					<Redirect exact from="/" to="/home" />

@@ -24,8 +24,12 @@ export default function Dashboard() {
 	}
 
 	return (
-		<main>
-			<h1>{username}'s Dashboard</h1>
+		<main 
+			style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: '100vw' }}
+		>
+			<h1>Dashboard</h1>
+			<br></br>
+			<h4>Welcome {username}</h4>
 			<p className="largeText">
 				Admin?: <span className="regularText">{admin}</span>
 			</p>
@@ -33,7 +37,7 @@ export default function Dashboard() {
 				Employee ID:{" "}
 				<span className="regularText">{idMessage}</span>
 			</p>
-
+			<div style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }} >
 			<button
 				type="button"
 				className="btn btn_asLink secondary-btn"
@@ -46,6 +50,7 @@ export default function Dashboard() {
 			</button>
 
 			<button
+			style={{margin: '10px'}}
 				type="button"
 				className="btn btn_asLink secondary-btn"
 				// className="btn btn_asLink" 
@@ -57,7 +62,9 @@ export default function Dashboard() {
 			</button>
 
 
-			<LogOutButton className="primary-btn" />
+			{/* <LogOutButton className="primary-btn" /> */}
+
+			</div>
 		</main>
 	);
 }
